@@ -32,7 +32,7 @@ namespace Barberia
                 if (dato > 0)
                 {
                     consulta = consulta = $"SELECT Tipo_Usuario FROM tbl_usuarios WHERE Usuario = '{txt_Usuario.Text}'";
-                    if("Super Usuario"== BuscarDato(consulta))
+                    if ("Super Usuario" == BuscarDato(consulta))
                     {
                         MessageBox.Show("Hola " + BuscarDato(consulta));
                     }
@@ -40,12 +40,14 @@ namespace Barberia
                     {
 
                     }
-                    else if("Usuario Común" == BuscarDato(consulta))
+                    else if ("Usuario Común" == BuscarDato(consulta))
                     {
 
                     }
-                         
 
+                    Home abrirHome = new Home();
+                    abrirHome.Show();
+                    Hide();
 
                 }
             }
@@ -53,7 +55,7 @@ namespace Barberia
             {
                 MessageBox.Show("Error " + ex);
             }
-            
+
         }
         public string BuscarDato(string consulta)
         {
@@ -69,7 +71,7 @@ namespace Barberia
                 }
                 else
                 {
-                    return null; 
+                    return null;
                 }
             }
             catch (Exception ex)
@@ -83,7 +85,9 @@ namespace Barberia
             }
         }
 
+        private void InicioDeSecion_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

@@ -16,5 +16,26 @@ namespace Barberia
         {
             InitializeComponent();
         }
+
+        private void btnGestionUsuarios_Click(object sender, EventArgs e)
+        {
+            GestionUsuario AbriGestionUsuario = new GestionUsuario();
+            AbriGestionUsuario.Show();
+            Hide();
+        }
+
+        private void btnGestionClientes_Click(object sender, EventArgs e)
+        {
+            GestionCliente AbrirGestionCliente = new GestionCliente();
+            AbrirGestionCliente.Show();
+            Hide();
+        }
+
+        private void btnGestionProductos_Click(object sender, EventArgs e)
+        {
+            GestionProducto AbrirGestionProducto = new GestionProducto();
+            AbrirGestionProducto.Show();
+            Hide();
+        }
     }
 }
