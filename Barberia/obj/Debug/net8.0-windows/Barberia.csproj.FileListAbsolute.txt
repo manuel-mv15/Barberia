@@ -67,3 +67,6 @@ C:\Users\famil\source\repos\Barberia\Barberia2\Barberia\obj\Debug\net8.0-windows
 C:\Users\famil\source\repos\Barberia\Barberia2\Barberia\obj\Debug\net8.0-windows\Barberia.GestionCliente.resources
 C:\Users\famil\source\repos\Barberia\Barberia2\Barberia\obj\Debug\net8.0-windows\Barberia.GestionProducto.resources
 C:\Users\famil\source\repos\Barberia\Barberia2\Barberia\obj\Debug\net8.0-windows\Barberia.GestionUsuario.resources
+C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\obj\Debug\net8.0-windows\Barberia.GestionCliente.resources
+C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\obj\Debug\net8.0-windows\Barberia.GestionProducto.resources
+C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\obj\Debug\net8.0-windows\Barberia.GestionUsuario.resources
