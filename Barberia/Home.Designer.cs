@@ -214,6 +214,7 @@
             Margin = new Padding(6);
             Name = "Home";
             Text = "Home";
+            Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMostrar).EndInit();
             ResumeLayout(false);
             PerformLayout();

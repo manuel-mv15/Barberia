@@ -45,23 +45,8 @@ namespace Barberia
             if (txtFiltrarNombre.Text != null)// verificamos que el campo no este vacio
             {
                 // verificabos que tabla es y creamos la consulta
-                if (tbl == "tbl_clientes")
-                {
-                    consulta = $"SELECT * FROM {tbl} WHERE Nombre_Cliente = '{txtFiltrarNombre.Text}';";
-                }
-                else if (tbl == "tbl_usuarios")
-                {
-                    consulta = $"SELECT * FROM {tbl} WHERE Nombre_Barbero = '{txtFiltrarNombre.Text}';";
-                }
-                else if (tbl == " tbl_productos")
-                {
-                    consulta = $"SELECT * FROM {tbl} WHERE Nombre = '{txtFiltrarNombre.Text}';";
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione una tabla para filtrar");
-                }
-                dgvMostrar.DataSource = consultas.Buscardato(consulta);
+               
+                dgvMostrar.DataSource = consultas.Buscardato(tbl,txtFiltrarNombre.Text);
 
             }
             else
@@ -100,6 +85,11 @@ namespace Barberia
             RealizarVenta AbrirRealizarVenta = new RealizarVenta();
             AbrirRealizarVenta.Show();
             Hide();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
