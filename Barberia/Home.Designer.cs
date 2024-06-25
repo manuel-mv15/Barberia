@@ -37,7 +37,7 @@
             btnBuscarFiltro = new Button();
             btnMostrarProductos = new Button();
             btnMostrarClientes = new Button();
-            btnMostrarUsuarios = new Button();
+            btnMostrarBarberos = new Button();
             btnRealizarVentas = new Button();
             btnAgendarCita = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMostrar).BeginInit();
@@ -85,6 +85,7 @@
             dgvMostrar.RowHeadersWidth = 51;
             dgvMostrar.Size = new Size(2635, 726);
             dgvMostrar.TabIndex = 3;
+            dgvMostrar.CellContentClick += dgvMostrar_CellContentClick;
             // 
             // label1
             // 
@@ -124,6 +125,7 @@
             btnMostrarProductos.TabIndex = 9;
             btnMostrarProductos.Text = "Productos";
             btnMostrarProductos.UseVisualStyleBackColor = true;
+            btnMostrarProductos.Click += btnMostrarProductos_Click;
             // 
             // btnMostrarClientes
             // 
@@ -136,16 +138,16 @@
             btnMostrarClientes.UseVisualStyleBackColor = true;
             btnMostrarClientes.Click += btnMostrarClientes_Click;
             // 
-            // btnMostrarUsuarios
+            // btnMostrarBarberos
             // 
-            btnMostrarUsuarios.Location = new Point(1262, 459);
-            btnMostrarUsuarios.Margin = new Padding(6);
-            btnMostrarUsuarios.Name = "btnMostrarUsuarios";
-            btnMostrarUsuarios.Size = new Size(446, 84);
-            btnMostrarUsuarios.TabIndex = 7;
-            btnMostrarUsuarios.Text = "Usuarios";
-            btnMostrarUsuarios.UseVisualStyleBackColor = true;
-            btnMostrarUsuarios.Click += btnMostrarUsuarios_Click;
+            btnMostrarBarberos.Location = new Point(1262, 459);
+            btnMostrarBarberos.Margin = new Padding(6);
+            btnMostrarBarberos.Name = "btnMostrarBarberos";
+            btnMostrarBarberos.Size = new Size(446, 84);
+            btnMostrarBarberos.TabIndex = 7;
+            btnMostrarBarberos.Text = "Barberos";
+            btnMostrarBarberos.UseVisualStyleBackColor = true;
+            btnMostrarBarberos.Click += btnMostrarUsuarios_Click;
             // 
             // btnRealizarVentas
             // 
@@ -176,7 +178,7 @@
             Controls.Add(btnRealizarVentas);
             Controls.Add(btnMostrarProductos);
             Controls.Add(btnMostrarClientes);
-            Controls.Add(btnMostrarUsuarios);
+            Controls.Add(btnMostrarBarberos);
             Controls.Add(btnBuscarFiltro);
             Controls.Add(txtFiltrarNombre);
             Controls.Add(label1);
@@ -203,7 +205,7 @@
         private Button btnBuscarFiltro;
         private Button btnMostrarProductos;
         private Button btnMostrarClientes;
-        private Button btnMostrarUsuarios;
+        private Button btnMostrarBarberos;
         private Button btnRealizarVentas;
         private Button btnAgendarCita;
     }

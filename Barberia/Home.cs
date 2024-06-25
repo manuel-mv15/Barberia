@@ -42,18 +42,26 @@ namespace Barberia
 
         private void btnBuscarFiltro_Click(object sender, EventArgs e)
         {
-            if (txtFiltrarNombre.Text != null)
+            if (txtFiltrarNombre.Text != null)// verificamos que el campo no este vacio
             {
-
-
+                // verificabos que tabla es y creamos la consulta
                 if (tbl == "tbl_clientes")
                 {
                     consulta = $"SELECT * FROM {tbl} WHERE Nombre_Cliente = '{txtFiltrarNombre.Text}';";
                 }
-
-
-
-             dgvMostrar.DataSource =   consultas.Buscardato(consulta);
+                else if (tbl == "tbl_usuarios")
+                {
+                    consulta = $"SELECT * FROM {tbl} WHERE Nombre_Barbero = '{txtFiltrarNombre.Text}';";
+                }
+                else if (tbl == " tbl_productos")
+                {
+                    consulta = $"SELECT * FROM {tbl} WHERE Nombre = '{txtFiltrarNombre.Text}';";
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una tabla para filtrar");
+                }
+                dgvMostrar.DataSource = consultas.Buscardato(consulta);
 
             }
             else
@@ -64,13 +72,26 @@ namespace Barberia
 
         private void btnMostrarUsuarios_Click(object sender, EventArgs e)
         {
-
+            tbl = "tbl_barberos";
+            dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
         }
 
         private void btnMostrarClientes_Click(object sender, EventArgs e)
         {
             tbl = "tbl_clientes";
             dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
+        }
+
+        private void btnMostrarProductos_Click(object sender, EventArgs e)
+        {
+            tbl = "tbl_productos";
+
+            dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
+        }
+
+        private void dgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
