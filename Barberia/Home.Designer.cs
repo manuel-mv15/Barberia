@@ -158,6 +158,7 @@
             btnRealizarVentas.TabIndex = 10;
             btnRealizarVentas.Text = "Realizar Venta";
             btnRealizarVentas.UseVisualStyleBackColor = true;
+            btnRealizarVentas.Click += btnRealizarVentas_Click;
             // 
             // btnAgendarCita
             // 

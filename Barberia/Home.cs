@@ -91,7 +91,15 @@ namespace Barberia
 
         private void dgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+        }
+
+        private void btnRealizarVentas_Click(object sender, EventArgs e)
+        {
+            // abrir formulario de ventas
+            RealizarVenta AbrirRealizarVenta = new RealizarVenta();
+            AbrirRealizarVenta.Show();
+            Hide();
         }
     }
 }
