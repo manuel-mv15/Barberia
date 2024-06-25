@@ -17,15 +17,16 @@ namespace Barberia
     {
         Consultas consultas = new Consultas();
         string consulta = "";
+        string tbl = "tbl_productos";
         int id = 0;
         int fila = 0;
         public GestionProducto()
         {
             InitializeComponent();
-            //dgvGestionProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvGestionProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvGestionProductos.RowHeadersVisible = false;
             txtIDProducto.Enabled = false;
-            consulta = $"SELECT \r\n  idProducto,\r\n  Nombre,\r\n  Stock,\r\n  Precio,\r\n  Categoria,\r\n  DATE_FORMAT(Fecha_Ingreso, '%Y/%m/%d') AS Fecha_Ingreso,\r\n  DATE_FORMAT(Fecha_Caducidad, '%Y/%m/%d') AS Fecha_Caducidad,\r\n  Marca\r\nFROM tbl_productos;";
-            dgvGestionProductos.DataSource = consultas.ActualizarTabla(consulta);
+            dgvGestionProductos.DataSource = consultas.ActualizarTabla(tbl);
 
         }
 
@@ -117,6 +118,7 @@ namespace Barberia
             cmbCategoriaProducto.Text = dgvGestionProductos.Rows[fila].Cells[4].Value.ToString();
             mtbFechaIngreso.Text = dgvGestionProductos.Rows[fila].Cells[5].Value.ToString();
             mtbFechaCaducidad.Text = dgvGestionProductos.Rows[fila].Cells[6].Value.ToString();
+            txtMarca.Text = dgvGestionProductos.Rows[fila].Cells[7].Value.ToString();
 
             btnAceptar.Visible = true;
             btnEliminar.Enabled = false;
@@ -146,19 +148,12 @@ namespace Barberia
         {
             if (CamposValidacion(groupBox1))
             {
-                consulta = $"UPDATE `tbl_productos` SET `Nombre`='{txtNombreProducto.Text}',`Stock`={int.Parse(txtStockProducto.Text)},`Precio`={decimal.Parse(txtPrecioProducto.Text)},`Categoria`='{cmbCategoriaProducto.Text}',`Fecha_Ingreso`='{mtbFechaIngreso.Text}',`Fecha_Caducidad`='{mtbFechaCaducidad.Text}',`Marca`='{txtMarca.Text}' WHERE `idProducto` = {id}";
-                consultas.Query(consulta);
-                dgvGestionProductos.DataSource = consultas.ActualizarTabla("tbl_clientes");
+                consulta = $"INSERT INTO tbl_productos(Nombre, Stock, Precio, Categoria, Fecha_Ingreso, Fecha_Caducidad, Marca) VALUES ('{txtNombreProducto.Text}'," +
+                   $"'{txtStockProducto.Text}','{txtPrecioProducto.Text}','{cmbCategoriaProducto.Text}','{mtbFechaIngreso.Text}','{mtbFechaCaducidad.Text}','{txtMarca.Text}')";
 
-                btnAceptar.Visible = false;
-                btnEliminar.Enabled = true;
-                btnHome.Enabled = true;
-                btnAgregar.Enabled = true;
+                consultas.Query(consulta);
+                dgvGestionProductos.DataSource = consultas.ActualizarTabla(tbl);
                 limpiar(groupBox1);
-            }
-            else
-            {
-                MessageBox.Show("Llene todos los campos");
 
             }
 
@@ -177,5 +172,28 @@ namespace Barberia
             }
             return true;
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+           
+            if (CamposValidacion(groupBox1))
+            {
+                consulta = $"UPDATE `tbl_productos` SET `Nombre`='{txtNombreProducto.Text}',`Stock`={int.Parse(txtStockProducto.Text)},`Precio`={decimal.Parse(txtPrecioProducto.Text)},`Categoria`='{cmbCategoriaProducto.Text}',`Fecha_Ingreso`='{mtbFechaIngreso.Text}',`Fecha_Caducidad`='{mtbFechaCaducidad.Text}',`Marca`='{txtMarca.Text}' WHERE `idProducto` = {id}";
+                consultas.Query(consulta);
+                dgvGestionProductos.DataSource = consultas.ActualizarTabla("tbl_clientes");
+
+                btnAceptar.Visible = false;
+                btnEliminar.Enabled = true;
+                btnHome.Enabled = true;
+                btnAgregar.Enabled = true;
+                limpiar(groupBox1);
+            }
+            else
+            {
+                MessageBox.Show("Llene todos los campos");
+
+            }
+        }
+
     }
 }

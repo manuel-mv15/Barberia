@@ -46,7 +46,7 @@ namespace Barberia
             {
                 // verificabos que tabla es y creamos la consulta
                
-                dgvMostrar.DataSource = consultas.Buscardato(tbl,txtFiltrarNombre.Text);
+            //    dgvMostrar.DataSource = consultas.Buscardato(tbl,txtFiltrarNombre.Text);
 
             }
             else

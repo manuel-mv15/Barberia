@@ -263,7 +263,7 @@
             btnAceptar.TabIndex = 21;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
-//            btnAceptar.Click += btnAceptar_Click;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnEliminar
             // 
@@ -290,13 +290,11 @@
             // dgvGestionProductos
             // 
             dgvGestionProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGestionProductos.Location = new Point(115, 650);
-            dgvGestionProductos.Margin = new Padding(6);
+            dgvGestionProductos.Location = new Point(248, 675);
             dgvGestionProductos.Name = "dgvGestionProductos";
-            dgvGestionProductos.RowHeadersWidth = 51;
-            dgvGestionProductos.Size = new Size(3787, 929);
+            dgvGestionProductos.RowHeadersWidth = 102;
+            dgvGestionProductos.Size = new Size(3033, 838);
             dgvGestionProductos.TabIndex = 24;
-            dgvGestionProductos.CellContentClick += dgvGestionProductos_CellContentClick;
             // 
             // GestionProducto
             // 

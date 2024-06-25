@@ -11,17 +11,14 @@ namespace Barberia
 {
     internal class Consultas
     {
-        string consulta = "";
 
-        public DataTable ActualizarTabla(string tbl)
+        public DataTable ActualizarTabla( string tbl )
         {
-            tblconsulta(tbl);
             MySqlConnection miconcexcion = Conexcion.MyConnection();
             miconcexcion.Open();
-            
             try
             {
-                MySqlCommand cmd = new MySqlCommand(consulta, miconcexcion);
+                MySqlCommand cmd = new MySqlCommand(tblconsulta(tbl), miconcexcion);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt); // fila 25
@@ -40,10 +37,11 @@ namespace Barberia
                 miconcexcion.Close();
             }
         }
-       
+
         public DataTable Buscardato(string tbl, string Nombre)
         {
-            tblconsulta(tbl);
+
+            string consulta = tblconsulta(tbl);
 
             if (tbl == "tbl_clientes")
             {
@@ -62,7 +60,7 @@ namespace Barberia
                 MessageBox.Show("Seleccione una tabla para filtrar ");
             }
 
-            MySqlConnection miconcexcion = Conexcion .MyConnection();
+            MySqlConnection miconcexcion = Conexcion.MyConnection();
             miconcexcion.Open();
             try
             {
@@ -95,11 +93,21 @@ namespace Barberia
             }
         }
         //---------
-        void tblconsulta(string tbl)
+      private  string tblconsulta(string tbl)
         {
+            string consulta = "";
             if (tbl == "tbl_productos")
             {
-                consulta = "SELECT \r\n  idProducto,\r\n  Nombre,\r\n  Stock,\r\n  Precio,\r\n  Categoria,\r\n  DATE_FORMAT(Fecha_Ingreso, '%Y/%m/%d') AS Fecha_Ingreso,\r\n  DATE_FORMAT(Fecha_Caducidad, '%Y/%m/%d') AS Fecha_Caducidad,\r\n  Marca\r\nFROM tbl_productos ";
+                consulta = @$"SELECT 
+                                    `idProducto`, 
+                                    `Nombre`, 
+                                    `Stock`, 
+                                    `Precio`, 
+                                    `Categoria`, 
+                                    DATE_FORMAT(`Fecha_Ingreso`, '%Y/%m/%d') AS `Fecha_Ingreso`, 
+                                    DATE_FORMAT(`Fecha_Caducidad`, '%Y/%m/%d') AS `Fecha_Caducidad`, 
+                                    `Marca` 
+                                 FROM `{tbl}`";
             }
             else if (tbl == "tbl_citas")
             {
@@ -121,10 +129,7 @@ namespace Barberia
             {
                 consulta = "";
             }
-            else
-            {
-                consulta = $"SELECT * FROM {tbl}";
-            }
+            return consulta;
         }
     }
 

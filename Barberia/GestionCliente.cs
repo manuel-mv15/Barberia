@@ -16,10 +16,23 @@ namespace Barberia
         string consulta = "";
         int id = 0;
         int fila = 0;
+        string tbl = "";
+       
         public GestionCliente()
         {
             InitializeComponent();
-            dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
+            consulta = @$"SELECT 
+                                    `idProducto`, 
+                                    `Nombre`, 
+                                    `Stock`, 
+                                    `Precio`, 
+                                    `Categoria`, 
+                                    DATE_FORMAT(`Fecha_Ingreso`, '%Y/%m/%d') AS `Fecha_Ingreso`, 
+                                    DATE_FORMAT(`Fecha_Caducidad`, '%Y/%m/%d') AS `Fecha_Caducidad`, 
+                                    `Marca` 
+                                 FROM ``";
+
+            dgvGestionarClientes.DataSource = consultas.ActualizarTabla(consulta);
             dgvGestionarClientes.RowHeadersVisible = false;
         }
 
@@ -36,7 +49,7 @@ namespace Barberia
             {
 
                 consulta = $"INSERT INTO `tbl_clientes`(`idCliente`, `Nombre_Cliente`, `Apellido_Cliente`, `Direccion_Cliente`, `Telefono_Cliente`, `DUI_Cliente`, `Correo_Electronico`, `Fecha_Registro`) VALUES ({txtNombre_Cliente.Text}','{txtApellido_Cliente.Text}','{txtDireccion_Cliente}','{mtxtTelefono_Cliente.Text}','{txtDUI_Cliente.Text}','{txtCorreo_Electronico.Text}',CURDATE())";
-                //         consultas.Query(consulta);
+                     consultas.Query(consulta);
                 dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
                 limpiar(groupBox1);
             }
