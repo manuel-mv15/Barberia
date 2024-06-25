@@ -45,11 +45,8 @@ namespace Barberia
 
                     }
 
-                    //Home abrirHome = new Home();
-                    //abrirHome.Show();
-                    //Hide();
-                    RealizarVenta realizarVenta = new RealizarVenta();
-                    realizarVenta.Show();
+                    Home abrirHome = new Home();
+                    abrirHome.Show();
                     Hide();
 
                 }

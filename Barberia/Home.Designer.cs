@@ -40,6 +40,8 @@
             btnMostrarBarberos = new Button();
             btnRealizarVentas = new Button();
             btnAgendarCita = new Button();
+            button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMostrar).BeginInit();
             SuspendLayout();
             // 
@@ -56,10 +58,10 @@
             // 
             // btnGestionClientes
             // 
-            btnGestionClientes.Location = new Point(484, 25);
+            btnGestionClientes.Location = new Point(26, 121);
             btnGestionClientes.Margin = new Padding(6);
             btnGestionClientes.Name = "btnGestionClientes";
-            btnGestionClientes.Size = new Size(474, 84);
+            btnGestionClientes.Size = new Size(447, 84);
             btnGestionClientes.TabIndex = 1;
             btnGestionClientes.Text = "Clientes";
             btnGestionClientes.UseVisualStyleBackColor = true;
@@ -67,10 +69,10 @@
             // 
             // btnGestionProductos
             // 
-            btnGestionProductos.Location = new Point(971, 25);
+            btnGestionProductos.Location = new Point(484, 25);
             btnGestionProductos.Margin = new Padding(6);
             btnGestionProductos.Name = "btnGestionProductos";
-            btnGestionProductos.Size = new Size(474, 84);
+            btnGestionProductos.Size = new Size(447, 84);
             btnGestionProductos.TabIndex = 2;
             btnGestionProductos.Text = "Productos";
             btnGestionProductos.UseVisualStyleBackColor = true;
@@ -170,11 +172,33 @@
             btnAgendarCita.Text = "Agendar Cita";
             btnAgendarCita.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(484, 121);
+            button1.Margin = new Padding(6);
+            button1.Name = "button1";
+            button1.Size = new Size(447, 84);
+            button1.TabIndex = 12;
+            button1.Text = "Citas";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(943, 25);
+            button2.Margin = new Padding(6);
+            button2.Name = "button2";
+            button2.Size = new Size(447, 84);
+            button2.TabIndex = 13;
+            button2.Text = "Ventas";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2707, 1324);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(btnAgendarCita);
             Controls.Add(btnRealizarVentas);
             Controls.Add(btnMostrarProductos);
@@ -209,5 +233,7 @@
         private Button btnMostrarBarberos;
         private Button btnRealizarVentas;
         private Button btnAgendarCita;
+        private Button button1;
+        private Button button2;
     }
 }
