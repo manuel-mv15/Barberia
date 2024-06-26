@@ -295,6 +295,7 @@
             dgvGestionProductos.RowHeadersWidth = 102;
             dgvGestionProductos.Size = new Size(3033, 838);
             dgvGestionProductos.TabIndex = 24;
+            dgvGestionProductos.CellContentClick += dgvGestionProductos_CellContentClick_1;
             // 
             // GestionProducto
             // 

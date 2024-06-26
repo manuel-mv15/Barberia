@@ -20,7 +20,9 @@ namespace Barberia
         string tbl = "tbl_productos";
         int id = 0;
         int fila = 0;
-        public GestionProducto()
+
+
+        public GestionProducto()// terminado
         {
             InitializeComponent();
             dgvGestionProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -33,7 +35,7 @@ namespace Barberia
         DataTable dtProducto = new DataTable();
 
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)// termindado
         {
             Home AbrirHome = new Home();
             AbrirHome.Show();
@@ -46,7 +48,7 @@ namespace Barberia
         }
 
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)// terminado 
         {
             if (CamposValidacion(groupBox1))
             {
@@ -57,32 +59,59 @@ namespace Barberia
                 consultas.ActualizarTabla("tbl_productos");
                 limpiar(groupBox1);
             }
+            else
+            {
+
+            }
+
+
         }
 
-        private bool CamposValidacion(GroupBox grp)
+        private bool CamposValidacion(GroupBox grp)// terminado
         {
             bool validacion = true;
 
-            validacion = validartxt(groupBox1);
             if (string.IsNullOrEmpty(txtNombreProducto.Text))
             {
+                validacion = false;
                 MessageBox.Show("Ingrese el nombre del producto");
                 txtNombreProducto.Focus();
             }
+            else
+            {
+                validacion = true;
+            }
             if (string.IsNullOrEmpty(txtStockProducto.Text))
             {
+                validacion = false;
                 MessageBox.Show("Ingrese la cantidad disponible del producto");
                 txtStockProducto.Focus();
             }
+
+            else
+            {
+                validacion = true;
+            }
             if (string.IsNullOrEmpty(txtPrecioProducto.Text))
             {
+                validacion = false;
                 MessageBox.Show("Ingrese el precio del producto");
                 txtPrecioProducto.Focus();
             }
+
+            else
+            {
+                validacion = true;
+            }
             if (string.IsNullOrEmpty(cmbCategoriaProducto.Text))
             {
+                validacion = false;
                 MessageBox.Show("Ingrese la categoria del producto");
                 cmbCategoriaProducto.Focus();
+            }
+            else
+            {
+                validacion = true;
             }
             if (string.IsNullOrEmpty(txtMarca.Text))
             {
@@ -90,12 +119,15 @@ namespace Barberia
                 MessageBox.Show("Ingrese la marca del producto");
                 txtMarca.Focus();
             }
-
+            else
+            {
+                validacion = true;
+            }
             return validacion;
 
         }
 
-        private void limpiar(GroupBox gb)
+        private void limpiar(GroupBox gb)//termindado
         {
             foreach (Control item in gb.Controls)
             {
@@ -107,9 +139,12 @@ namespace Barberia
                     }
                 }
             }
+            mtbFechaCaducidad.Text = null;
+            mtbFechaIngreso.Text = null;
+            cmbCategoriaProducto.Text = null;
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e) // termindado
         {
             txtIDProducto.Text = dgvGestionProductos.Rows[fila].Cells[0].Value.ToString();
             txtNombreProducto.Text = dgvGestionProductos.Rows[fila].Cells[1].Value.ToString();
@@ -124,22 +159,15 @@ namespace Barberia
             btnEliminar.Enabled = false;
             btnHome.Enabled = false;
             btnAgregar.Enabled = false;
+            btnEditar.Enabled = false;
         }
 
-
-
-        private void dgvGestionProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            fila = dgvGestionProductos.CurrentRow.Index;
-            id = int.Parse(dgvGestionProductos.Rows[fila].Cells[0].Value.ToString());
-        }
+       
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
-
             consulta = $"DELETE FROM `tbl_productos` WHERE idCliente = {id} ";
+            MessageBox.Show(consulta);
             consultas.Query(consulta);
             dgvGestionProductos.DataSource = consultas.ActualizarTabla("tbl_productos");
         }
@@ -156,6 +184,11 @@ namespace Barberia
                 limpiar(groupBox1);
 
             }
+            else
+            {
+                MessageBox.Show("agregar");
+            }
+
 
         }
         private bool validartxt(GroupBox gb)
@@ -175,25 +208,42 @@ namespace Barberia
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           
+
             if (CamposValidacion(groupBox1))
             {
                 consulta = $"UPDATE `tbl_productos` SET `Nombre`='{txtNombreProducto.Text}',`Stock`={int.Parse(txtStockProducto.Text)},`Precio`={decimal.Parse(txtPrecioProducto.Text)},`Categoria`='{cmbCategoriaProducto.Text}',`Fecha_Ingreso`='{mtbFechaIngreso.Text}',`Fecha_Caducidad`='{mtbFechaCaducidad.Text}',`Marca`='{txtMarca.Text}' WHERE `idProducto` = {id}";
                 consultas.Query(consulta);
-                dgvGestionProductos.DataSource = consultas.ActualizarTabla("tbl_clientes");
+                dgvGestionProductos.DataSource = consultas.ActualizarTabla("tbl_productos");
 
                 btnAceptar.Visible = false;
                 btnEliminar.Enabled = true;
                 btnHome.Enabled = true;
                 btnAgregar.Enabled = true;
+                btnEditar.Enabled = true;
                 limpiar(groupBox1);
             }
             else
             {
-                MessageBox.Show("Llene todos los campos");
 
             }
         }
 
+        private void dgvGestionProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvGestionProductos.CurrentRow != null)
+            {
+                fila = dgvGestionProductos.CurrentRow.Index;
+                var cellValue = dgvGestionProductos.Rows[fila].Cells[0].Value;
+                if (cellValue != null)
+                {
+                    id = int.Parse(cellValue.ToString());
+                }
+                else
+                {
+
+                }
+
+            }
+        }
     }
 }

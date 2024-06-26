@@ -12,7 +12,7 @@ namespace Barberia
     internal class Consultas
     {
 
-        public DataTable ActualizarTabla( string tbl )
+        public DataTable ActualizarTabla(string tbl)
         {
             MySqlConnection miconcexcion = Conexcion.MyConnection();
             miconcexcion.Open();
@@ -22,8 +22,6 @@ namespace Barberia
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt); // fila 25
-
-              
 
                 return dt;
             }
@@ -93,7 +91,7 @@ namespace Barberia
             }
         }
         //---------
-      private  string tblconsulta(string tbl)
+        private string tblconsulta(string tbl)
         {
             string consulta = "";
             if (tbl == "tbl_productos")
@@ -111,11 +109,20 @@ namespace Barberia
             }
             else if (tbl == "tbl_citas")
             {
-                consulta = "SELECT \r\n  idCita,\r\n  idCliente,\r\n  idBarbero,\r\n  Descripcion,\r\n  DATE_FORMAT(Fecha_Inicio, '%Y/%m/%d') AS Fecha_Inicio,\r\n  DATE_FORMAT(Fecha_Finalizacion, '%Y/%m/%d') AS Fecha_Finalizacion\r\nFROM tbl_citas ";
+                consulta = @"SELECT \r\n  idCita,\r\n  idCliente,\r\n  idBarbero,\r\n  Descripcion,\r\n  DATE_FORMAT(Fecha_Inicio, '%Y/%m/%d') AS Fecha_Inicio,\r\n  DATE_FORMAT(Fecha_Finalizacion, '%Y/%m/%d') AS Fecha_Finalizacion\r\nFROM tbl_citas ";
             }
             else if (tbl == "tbl_clientes")
             {
-                consulta = "SELECT \r\n  idCliente,\r\n  Nombre_Cliente,\r\n  Apellido_Cliente,\r\n Direccion_Cliente,\r\n  Telefono_Cliente,\r\n  DUI_Cliente,\r\n  Correo_Electronico,\r\n  DATE_FORMAT(Fecha_Registro, '%Y/%m/%d') AS Fecha_Registro\r\n  \r\nFROM tbl_clientes ";
+                consulta = @"SELECT 
+`idCliente`,
+`Nombre_Cliente`,
+`Apellido_Cliente`,
+`Direccion_Cliente`,
+`Telefono_Cliente`,
+`DUI_Cliente`,
+`Correo_Electronico`,
+DATE_FORMAT(`Fecha_Registro`, '%Y/%m/%d') AS `Fecha_Registro`
+FROM tbl_clientes";
             }
             else if (tbl == "tbl_barberos")
             {
