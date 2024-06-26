@@ -14,6 +14,7 @@ namespace Barberia
     {
         Encriptador encriptador = new Encriptador();
         Consultas consultas = new Consultas();
+        string consulta = "";
         string tbl = "tbl_usuarios";
         int id = 0;
         public GestionUsuario()
@@ -21,9 +22,15 @@ namespace Barberia
             InitializeComponent();
             dgvGestionUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGestionUsuario.RowHeadersVisible = false;
-            //txtIDUsuario.Enabled = false;
+            txtIdUsuario.Enabled = false;
 
-            dgvGestionUsuario.DataSource = consultas.ActualizarTabla(tbl);
+            txtTipodeUsuario.Enabled = false;
+
+            btnCancelar.Visible = false;
+            btnEditar.Visible = false;
+
+            txtIdUsuario.Visible = false;
+            txtTipodeUsuario.Visible = false;
 
         }
 
@@ -51,13 +58,13 @@ namespace Barberia
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            
+
             // inicio de secion 
             string Usuario = txtUsuario.Text;
             string Clave = txtClave.Text;
 
-            string consulta = $"SELECT * FROM tbl_usuarios WHERE Usuario = '{Usuario}' and Clave = '{encriptador.Encriptar(Clave)}';";
-            MessageBox.Show(consulta);
+            consulta = $"SELECT * FROM tbl_usuarios WHERE Usuario = '{Usuario}' and Clave = '{encriptador.Encriptar(Clave)}';";
+         
             // coneccion a la base de datos 
             MySqlConnection conexcion = Conexcion.MyConnection();
             conexcion.Open();
@@ -71,16 +78,24 @@ namespace Barberia
                 {
 
 
-                    consulta =  $"SELECT Tipo_Usuario FROM tbl_usuarios WHERE Usuario = '{txtUsuario.Text}'";
+                    consulta = $"SELECT Tipo_Usuario FROM tbl_usuarios WHERE Usuario = '{txtUsuario.Text}'";
                     if ("Super Usuario" == consultas.BuscarDato(consulta))
                     {
 
                         consulta = $"SELECT `idUsuario` FROM tbl_usuarios WHERE `Usuario` = '{Usuario}'";
                         id = int.Parse(consultas.BuscarDato(consulta));
+                        
+                        
+                        MessageBox.Show("Consulta SQL: " + consulta);
+
+                        dgvGestionUsuario.DataSource = consultas.ActualizarTabla(tbl,1);
                     }
                     else if ("Administrador" == consultas.BuscarDato(consulta))
                     {
-
+                        consulta = $"SELECT `idUsuario` FROM tbl_usuarios WHERE `Usuario` = '{Usuario}'";
+                        id = int.Parse(consultas.BuscarDato(consulta));
+                        
+                        dgvGestionUsuario.DataSource = consultas.ActualizarTabla(tbl,2);
                     }
                     ObtenerDatosPorId(id);
 
@@ -93,15 +108,18 @@ namespace Barberia
         }
         private void ObtenerDatosPorId(int idUsuario)
         {
-            foreach (DataGridViewRow fila in dgvGestionUsuario.Rows)
+            DataTable dt = new DataTable();
+            dt = consultas.ActualizarTabla(tbl);
+            foreach (DataRow row in dt.Rows)
             {
-                if (fila.Cells["idUsuario"].Value != null && fila.Cells["idUsuario"].Value.ToString() == idUsuario.ToString())
+                
+                if (row[0]!= null && row[0].ToString() == idUsuario.ToString())
                 {
                     // Aquí obtienes los datos de la fila
-                    txtIdUsuario.Text = fila.Cells[0].Value.ToString();
-                    txtUsuario.Text = fila.Cells[1].Value.ToString();
-                    txtClave.Text = encriptador.desEncriptar(fila.Cells[2].Value.ToString());
-                    txtTipodeUsuario.Text = fila.Cells[3].Value.ToString();
+                    txtIdUsuario.Text = row[0].ToString();
+                    txtUsuario.Text = row[1].ToString();
+                    txtClave.Text = encriptador.desEncriptar(row[2].ToString());
+                    txtTipodeUsuario.Text = row[3].ToString();
                     return;
                 }
             }
@@ -110,5 +128,23 @@ namespace Barberia
             MessageBox.Show($"No se encontró ninguna fila con el ID Usuario: {idUsuario}");
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            consulta = $"UPDATE `tbl_usuarios` SET `Usuario`='{txtUsuario.Text}',`Clave`='{encriptador.Encriptar(txtClave.Text)}' WHERE = {id}";
+            limpiar(groupBox1);
+        }
+        private void limpiar(GroupBox gb)//termindado
+        {
+            foreach (Control item in gb.Controls)
+            {
+                if (item is TextBox)
+                {
+                    if (item != null)
+                    {
+                        item.Text = "";
+                    }
+                }
+            }
+        }
     }
 }

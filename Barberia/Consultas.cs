@@ -21,7 +21,7 @@ namespace Barberia
                 MySqlCommand cmd = new MySqlCommand(tblconsulta(tbl), miconcexcion);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
-                da.Fill(dt); // fila 25
+                da.Fill(dt);
 
                 return dt;
             }
@@ -35,7 +35,29 @@ namespace Barberia
                 miconcexcion.Close();
             }
         }
+        public DataTable ActualizarTabla(string tbl, int tipo)
+        {
+            MySqlConnection miconcexcion = Conexcion.MyConnection();
+            miconcexcion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(tblconsulta(tbl,tipo), miconcexcion);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR " + ex);
+                return null;
+            }
+            finally
+            {
+                miconcexcion.Close();
+            }
+        }
         public DataTable Buscardato(string tbl, string Nombre)
         {
 
@@ -130,13 +152,31 @@ FROM tbl_clientes";
             }
             else if (tbl == "tbl_usuarios")
             {
-                consulta = "SELECT `idUsuario`,`Usuario`,`Clave`,`Tipo_Usuario` FROM tbl_usuarios";
+                consulta = "SELECT * FROM `tbl_usuarios` ";
             }
+
             else if (tbl == "tbl_ventas")
             {
                 consulta = "";
             }
             return consulta;
+        }
+
+        private string tblconsulta(string tbl,int tipo)
+        {
+
+            string consulta = "";
+            if (tbl == "tbl_usuarios" && tipo ==1)
+            {
+                consulta = "SELECT `idUsuario`,`Usuario`,`Tipo_Usuario` FROM tbl_usuarios";
+            }
+            else if (tbl == "tbl_usuarios" && tipo == 2)
+            {
+                consulta = "";
+            }
+
+                return consulta;
+
         }
         public string BuscarDato(string consulta)
         {

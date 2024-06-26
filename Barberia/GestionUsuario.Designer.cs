@@ -32,14 +32,14 @@
             dgvGestionUsuario = new DataGridView();
             groupBox1 = new GroupBox();
             label4 = new Label();
-            txtTipodeUsuario = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            txtClave = new TextBox();
             btnCancelar = new Button();
-            btnIniciar = new Button();
             btnEditar = new Button();
+            btnIniciar = new Button();
+            txtTipodeUsuario = new TextBox();
+            txtClave = new TextBox();
             txtUsuario = new TextBox();
             txtIdUsuario = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvGestionUsuario).BeginInit();
@@ -99,13 +99,6 @@
             label4.TabIndex = 12;
             label4.Text = "Tipo de usuario";
             // 
-            // txtTipodeUsuario
-            // 
-            txtTipodeUsuario.Location = new Point(311, 309);
-            txtTipodeUsuario.Name = "txtTipodeUsuario";
-            txtTipodeUsuario.Size = new Size(250, 47);
-            txtTipodeUsuario.TabIndex = 6;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -133,13 +126,6 @@
             label1.TabIndex = 9;
             label1.Text = "id";
             // 
-            // txtClave
-            // 
-            txtClave.Location = new Point(311, 227);
-            txtClave.Name = "txtClave";
-            txtClave.Size = new Size(250, 47);
-            txtClave.TabIndex = 6;
-            // 
             // btnCancelar
             // 
             btnCancelar.Location = new Point(413, 513);
@@ -149,6 +135,16 @@
             btnCancelar.Text = "Calcelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += button3_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(44, 513);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(188, 58);
+            btnEditar.TabIndex = 7;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnIniciar
             // 
@@ -160,14 +156,19 @@
             btnIniciar.UseVisualStyleBackColor = true;
             btnIniciar.Click += btnIniciar_Click;
             // 
-            // btnEditar
+            // txtTipodeUsuario
             // 
-            btnEditar.Location = new Point(44, 513);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(188, 58);
-            btnEditar.TabIndex = 7;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            txtTipodeUsuario.Location = new Point(311, 309);
+            txtTipodeUsuario.Name = "txtTipodeUsuario";
+            txtTipodeUsuario.Size = new Size(250, 47);
+            txtTipodeUsuario.TabIndex = 6;
+            // 
+            // txtClave
+            // 
+            txtClave.Location = new Point(311, 227);
+            txtClave.Name = "txtClave";
+            txtClave.Size = new Size(250, 47);
+            txtClave.TabIndex = 6;
             // 
             // txtUsuario
             // 
