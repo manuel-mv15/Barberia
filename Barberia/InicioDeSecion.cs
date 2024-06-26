@@ -7,6 +7,7 @@ namespace Barberia
 {
     public partial class InicioDeSecion : Form
     {
+        Consultas consultas = new Consultas();
         public InicioDeSecion()
         {
             InitializeComponent();
@@ -32,15 +33,15 @@ namespace Barberia
                 if (dato > 0)
                 {
                     consulta = consulta = $"SELECT Tipo_Usuario FROM tbl_usuarios WHERE Usuario = '{txt_Usuario.Text}'";
-                    if ("Super Usuario" == BuscarDato(consulta))
+                    if ("Super Usuario" == consultas.BuscarDato(consulta))
                     {
-                        MessageBox.Show("Hola " + BuscarDato(consulta));
+                        MessageBox.Show("Hola " + consultas.BuscarDato(consulta));
                     }
-                    else if ("Administrador" == BuscarDato(consulta))
+                    else if ("Administrador" == consultas.BuscarDato(consulta))
                     {
 
                     }
-                    else if ("Usuario Común" == BuscarDato(consulta))
+                    else if ("Usuario Común" == consultas.BuscarDato(consulta))
                     {
 
                     }
@@ -57,33 +58,7 @@ namespace Barberia
             }
 
         }
-        public string BuscarDato(string consulta)
-        {
-            MySqlConnection conexion = Conexcion.MyConnection();
-            conexion.Open();
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand(consulta, conexion);
-                object result = cmd.ExecuteScalar();
-                if (result != null)
-                {
-                    return result.ToString();
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return null;
-            }
-            finally
-            {
-                conexion.Close();
-            }
-        }
+        
 
         private void InicioDeSecion_Load(object sender, EventArgs e)
         {

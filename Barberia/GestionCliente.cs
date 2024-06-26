@@ -17,32 +17,32 @@ namespace Barberia
         int id = 0;
         int fila = 0;
         string tbl = "tbl_clientes";
-       
-        public GestionCliente()
+
+        public GestionCliente() //termindado
         {
             InitializeComponent();
-
             dgvGestionarClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGestionarClientes.RowHeadersVisible = false;
+            txtIDCliente.Enabled = false;
             dgvGestionarClientes.DataSource = consultas.ActualizarTabla(tbl);
-            
+
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e) //terminado
         {
             Home AbrirHome = new Home();
             AbrirHome.Show();
             Hide();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e) //terminado
         {
             if (validartxt(groupBox1))
             {
 
                 consulta = $"INSERT INTO `tbl_clientes`(`Nombre_Cliente`, `Apellido_Cliente`, `Direccion_Cliente`, `Telefono_Cliente`, `DUI_Cliente`, `Correo_Electronico`, `Fecha_Registro`) VALUES ({txtNombre_Cliente.Text}','{txtApellido_Cliente.Text}','{txtDireccion_Cliente}','{mtxtTelefono_Cliente.Text}','{txtDUI_Cliente.Text}','{txtCorreo_Electronico.Text}',CURDATE())";
                 MessageBox.Show(consulta);
-                     consultas.Query(consulta);
+                consultas.Query(consulta);
                 dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
                 limpiar(groupBox1);
             }
@@ -53,7 +53,7 @@ namespace Barberia
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e) // terminado
         {
 
             consulta = $"DELETE FROM `tbl_clientes` WHERE idCliente = {id} ";
@@ -62,7 +62,7 @@ namespace Barberia
 
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e) //termindado
         {
             if (validartxt(groupBox1))
             {
@@ -76,7 +76,7 @@ namespace Barberia
                 btnEliminar.Enabled = true;
                 btnHome.Enabled = true;
                 btnAgregar.Enabled = true;
-                limpiar(groupBox1); 
+                limpiar(groupBox1);
             }
             else
             {
@@ -98,7 +98,7 @@ namespace Barberia
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e) //termindado
         {
             txtIDCliente.Text = dgvGestionarClientes.Rows[fila].Cells[0].Value.ToString();
             txtNombre_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[1].Value.ToString();
@@ -113,7 +113,7 @@ namespace Barberia
             btnAgregar.Enabled = false;
         }
         // limiar txt
-        private void limpiar(GroupBox gb)
+        private void limpiar(GroupBox gb) //terminado
         {
             foreach (Control item in gb.Controls)
             {
@@ -125,6 +125,7 @@ namespace Barberia
                     }
                 }
             }
+            mtxtTelefono_Cliente.Text = null;
         }
         //--------------------------------------------------------------------------------
         private bool validartxt(GroupBox gb)
@@ -140,6 +141,11 @@ namespace Barberia
                 }
             }
             return true;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 

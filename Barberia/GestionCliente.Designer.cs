@@ -30,6 +30,7 @@
         {
             btnHome = new Button();
             groupBox1 = new GroupBox();
+            txtIDCliente = new TextBox();
             mtxtTelefono_Cliente = new MaskedTextBox();
             label4 = new Label();
             label5 = new Label();
@@ -47,7 +48,6 @@
             btnEditar = new Button();
             btnEliminar = new Button();
             btnAceptar = new Button();
-            txtIDCliente = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGestionarClientes).BeginInit();
             SuspendLayout();
@@ -84,6 +84,14 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // txtIDCliente
+            // 
+            txtIDCliente.Location = new Point(224, 64);
+            txtIDCliente.Name = "txtIDCliente";
+            txtIDCliente.Size = new Size(250, 47);
+            txtIDCliente.TabIndex = 7;
             // 
             // mtxtTelefono_Cliente
             // 
@@ -235,13 +243,6 @@
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Visible = false;
             btnAceptar.Click += btnAceptar_Click;
-            // 
-            // txtIDCliente
-            // 
-            txtIDCliente.Location = new Point(224, 64);
-            txtIDCliente.Name = "txtIDCliente";
-            txtIDCliente.Size = new Size(250, 47);
-            txtIDCliente.TabIndex = 7;
             // 
             // GestionCliente
             // 

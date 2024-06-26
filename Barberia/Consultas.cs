@@ -138,6 +138,33 @@ FROM tbl_clientes";
             }
             return consulta;
         }
+        public string BuscarDato(string consulta)
+        {
+            MySqlConnection conexion = Conexcion.MyConnection();
+            conexion.Open();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(consulta, conexion);
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    return result.ToString();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
     }
 
 }
