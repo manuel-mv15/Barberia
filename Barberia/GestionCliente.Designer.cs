@@ -30,6 +30,7 @@
         {
             btnHome = new Button();
             groupBox1 = new GroupBox();
+            mtxtTelefono_Cliente = new MaskedTextBox();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
@@ -46,7 +47,7 @@
             btnEditar = new Button();
             btnEliminar = new Button();
             btnAceptar = new Button();
-            mtxtTelefono_Cliente = new MaskedTextBox();
+            txtIDCliente = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGestionarClientes).BeginInit();
             SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtIDCliente);
             groupBox1.Controls.Add(mtxtTelefono_Cliente);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
@@ -76,12 +78,19 @@
             groupBox1.Controls.Add(txtDireccion_Cliente);
             groupBox1.Controls.Add(txtApellido_Cliente);
             groupBox1.Controls.Add(txtNombre_Cliente);
-            groupBox1.Location = new Point(451, 25);
+            groupBox1.Location = new Point(450, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(916, 353);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
+            // 
+            // mtxtTelefono_Cliente
+            // 
+            mtxtTelefono_Cliente.Location = new Point(642, 64);
+            mtxtTelefono_Cliente.Name = "mtxtTelefono_Cliente";
+            mtxtTelefono_Cliente.Size = new Size(250, 47);
+            mtxtTelefono_Cliente.TabIndex = 16;
             // 
             // label4
             // 
@@ -153,21 +162,21 @@
             // 
             // txtDireccion_Cliente
             // 
-            txtDireccion_Cliente.Location = new Point(224, 214);
+            txtDireccion_Cliente.Location = new Point(224, 277);
             txtDireccion_Cliente.Name = "txtDireccion_Cliente";
             txtDireccion_Cliente.Size = new Size(250, 47);
             txtDireccion_Cliente.TabIndex = 10;
             // 
             // txtApellido_Cliente
             // 
-            txtApellido_Cliente.Location = new Point(224, 135);
+            txtApellido_Cliente.Location = new Point(224, 198);
             txtApellido_Cliente.Name = "txtApellido_Cliente";
             txtApellido_Cliente.Size = new Size(250, 47);
             txtApellido_Cliente.TabIndex = 8;
             // 
             // txtNombre_Cliente
             // 
-            txtNombre_Cliente.Location = new Point(224, 64);
+            txtNombre_Cliente.Location = new Point(224, 127);
             txtNombre_Cliente.Name = "txtNombre_Cliente";
             txtNombre_Cliente.Size = new Size(250, 47);
             txtNombre_Cliente.TabIndex = 7;
@@ -227,12 +236,12 @@
             btnAceptar.Visible = false;
             btnAceptar.Click += btnAceptar_Click;
             // 
-            // mtxtTelefono_Cliente
+            // txtIDCliente
             // 
-            mtxtTelefono_Cliente.Location = new Point(642, 64);
-            mtxtTelefono_Cliente.Name = "mtxtTelefono_Cliente";
-            mtxtTelefono_Cliente.Size = new Size(250, 47);
-            mtxtTelefono_Cliente.TabIndex = 16;
+            txtIDCliente.Location = new Point(224, 64);
+            txtIDCliente.Name = "txtIDCliente";
+            txtIDCliente.Size = new Size(250, 47);
+            txtIDCliente.TabIndex = 7;
             // 
             // GestionCliente
             // 
@@ -276,5 +285,6 @@
         private Button btnEliminar;
         private Button btnAceptar;
         private MaskedTextBox mtxtTelefono_Cliente;
+        private TextBox txtIDCliente;
     }
 }

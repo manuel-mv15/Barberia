@@ -85,21 +85,28 @@ namespace Barberia
             }
         }
 
-        private void dgvGestionarClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvGestionarClientes_CellContentClick(object sender, DataGridViewCellEventArgs e) //termindado
         {
-           this.fila = dgvGestionarClientes.CurrentRow.Index;
-            id = int.Parse(dgvGestionarClientes.Rows[fila].Cells[0].Value.ToString());
+            if (dgvGestionarClientes.CurrentRow != null)
+            {
+                fila = dgvGestionarClientes.CurrentRow.Index;
+                var cellValue = dgvGestionarClientes.Rows[fila].Cells[0].Value;
+                if (cellValue != null)
+                {
+                    id = int.Parse(cellValue.ToString());
+                }
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
-            txtNombre_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[0].Value.ToString();
-            txtApellido_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[1].Value.ToString();
-            txtDireccion_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[2].Value.ToString();
-            mtxtTelefono_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[3].Value.ToString();
-            txtDUI_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[4].Value.ToString();
-            txtCorreo_Electronico.Text = dgvGestionarClientes.Rows[fila].Cells[5].Value.ToString();
+            txtIDCliente.Text = dgvGestionarClientes.Rows[fila].Cells[0].Value.ToString();
+            txtNombre_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[1].Value.ToString();
+            txtApellido_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[2].Value.ToString();
+            txtDireccion_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[3].Value.ToString();
+            mtxtTelefono_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[4].Value.ToString();
+            txtDUI_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[5].Value.ToString();
+            txtCorreo_Electronico.Text = dgvGestionarClientes.Rows[fila].Cells[6].Value.ToString();
             btnAceptar.Visible = true;
             btnEliminar.Enabled = false;
             btnHome.Enabled = false;

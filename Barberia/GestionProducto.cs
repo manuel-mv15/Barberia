@@ -162,51 +162,31 @@ namespace Barberia
             btnEditar.Enabled = false;
         }
 
-       
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+
+        private void btnEliminar_Click(object sender, EventArgs e)//termindado 
         {
             consulta = $"DELETE FROM `tbl_productos` WHERE idCliente = {id} ";
-            MessageBox.Show(consulta);
             consultas.Query(consulta);
             dgvGestionProductos.DataSource = consultas.ActualizarTabla("tbl_productos");
         }
 
-        private void btnAgregar_Click_1(object sender, EventArgs e)
+        private void btnAgregar_Click_1(object sender, EventArgs e) //termindado
         {
             if (CamposValidacion(groupBox1))
             {
-                consulta = $"INSERT INTO tbl_productos(Nombre, Stock, Precio, Categoria, Fecha_Ingreso, Fecha_Caducidad, Marca) VALUES ('{txtNombreProducto.Text}'," +
-                   $"'{txtStockProducto.Text}','{txtPrecioProducto.Text}','{cmbCategoriaProducto.Text}','{mtbFechaIngreso.Text}','{mtbFechaCaducidad.Text}','{txtMarca.Text}')";
-
+                consulta = $@"INSERT INTO tbl_productos(Nombre, Stock, Precio, Categoria, Fecha_Ingreso, Fecha_Caducidad, Marca) 
+VALUES 
+('{txtNombreProducto.Text}','{txtStockProducto.Text}','{txtPrecioProducto.Text}','{cmbCategoriaProducto.Text}','{mtbFechaIngreso.Text}','{mtbFechaCaducidad.Text}','{txtMarca.Text}')";
                 consultas.Query(consulta);
                 dgvGestionProductos.DataSource = consultas.ActualizarTabla(tbl);
                 limpiar(groupBox1);
-
             }
             else
             {
-                MessageBox.Show("agregar");
             }
-
-
         }
-        private bool validartxt(GroupBox gb)
-        {
-            foreach (Control item in gb.Controls)
-            {
-                if (item is TextBox)
-                {
-                    if (item.Text == "")
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e) //termindado
         {
 
             if (CamposValidacion(groupBox1))
@@ -228,7 +208,7 @@ namespace Barberia
             }
         }
 
-        private void dgvGestionProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvGestionProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)//terminado
         {
             if (dgvGestionProductos.CurrentRow != null)
             {
@@ -238,11 +218,6 @@ namespace Barberia
                 {
                     id = int.Parse(cellValue.ToString());
                 }
-                else
-                {
-
-                }
-
             }
         }
     }
