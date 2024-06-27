@@ -53,9 +53,10 @@
             btnGestionUsuarios.BackColor = Color.FromArgb(14, 93, 136);
             btnGestionUsuarios.Cursor = Cursors.Hand;
             btnGestionUsuarios.ForeColor = Color.White;
-            btnGestionUsuarios.Location = new Point(80, 73);
+            btnGestionUsuarios.Location = new Point(170, 150);
+            btnGestionUsuarios.Margin = new Padding(6, 6, 6, 6);
             btnGestionUsuarios.Name = "btnGestionUsuarios";
-            btnGestionUsuarios.Size = new Size(210, 41);
+            btnGestionUsuarios.Size = new Size(446, 84);
             btnGestionUsuarios.TabIndex = 0;
             btnGestionUsuarios.Text = "Usuarios";
             btnGestionUsuarios.UseVisualStyleBackColor = false;
@@ -66,9 +67,10 @@
             btnGestionClientes.BackColor = Color.FromArgb(14, 93, 136);
             btnGestionClientes.Cursor = Cursors.Hand;
             btnGestionClientes.ForeColor = Color.White;
-            btnGestionClientes.Location = new Point(80, 313);
+            btnGestionClientes.Location = new Point(170, 642);
+            btnGestionClientes.Margin = new Padding(6, 6, 6, 6);
             btnGestionClientes.Name = "btnGestionClientes";
-            btnGestionClientes.Size = new Size(210, 41);
+            btnGestionClientes.Size = new Size(446, 84);
             btnGestionClientes.TabIndex = 1;
             btnGestionClientes.Text = "Clientes";
             btnGestionClientes.UseVisualStyleBackColor = false;
@@ -79,9 +81,10 @@
             btnGestionProductos.BackColor = Color.FromArgb(14, 93, 136);
             btnGestionProductos.Cursor = Cursors.Hand;
             btnGestionProductos.ForeColor = Color.White;
-            btnGestionProductos.Location = new Point(80, 149);
+            btnGestionProductos.Location = new Point(170, 305);
+            btnGestionProductos.Margin = new Padding(6, 6, 6, 6);
             btnGestionProductos.Name = "btnGestionProductos";
-            btnGestionProductos.Size = new Size(210, 41);
+            btnGestionProductos.Size = new Size(446, 84);
             btnGestionProductos.TabIndex = 2;
             btnGestionProductos.Text = "Productos";
             btnGestionProductos.UseVisualStyleBackColor = false;
@@ -100,37 +103,42 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dgvMostrar.DefaultCellStyle = dataGridViewCellStyle1;
-            dgvMostrar.Location = new Point(24, 232);
+            dgvMostrar.Location = new Point(51, 476);
+            dgvMostrar.Margin = new Padding(6, 6, 6, 6);
             dgvMostrar.Name = "dgvMostrar";
             dgvMostrar.RowHeadersWidth = 51;
-            dgvMostrar.Size = new Size(1359, 555);
+            dgvMostrar.Size = new Size(2888, 1138);
             dgvMostrar.TabIndex = 3;
             dgvMostrar.CellContentClick += dgvMostrar_CellContentClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 189);
+            label1.Location = new Point(53, 387);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(67, 20);
+            label1.Size = new Size(135, 41);
             label1.TabIndex = 4;
             label1.Text = "Nombre:";
             // 
             // txtFiltrarNombre
             // 
-            txtFiltrarNombre.Location = new Point(98, 186);
+            txtFiltrarNombre.Location = new Point(208, 381);
+            txtFiltrarNombre.Margin = new Padding(6, 6, 6, 6);
             txtFiltrarNombre.Name = "txtFiltrarNombre";
-            txtFiltrarNombre.Size = new Size(234, 27);
+            txtFiltrarNombre.Size = new Size(493, 47);
             txtFiltrarNombre.TabIndex = 5;
+            txtFiltrarNombre.TextChanged += txtFiltrarNombre_TextChanged;
             // 
             // btnBuscarFiltro
             // 
             btnBuscarFiltro.BackColor = Color.FromArgb(14, 93, 136);
             btnBuscarFiltro.Cursor = Cursors.Hand;
             btnBuscarFiltro.ForeColor = Color.White;
-            btnBuscarFiltro.Location = new Point(360, 172);
+            btnBuscarFiltro.Location = new Point(765, 353);
+            btnBuscarFiltro.Margin = new Padding(6, 6, 6, 6);
             btnBuscarFiltro.Name = "btnBuscarFiltro";
-            btnBuscarFiltro.Size = new Size(180, 41);
+            btnBuscarFiltro.Size = new Size(382, 84);
             btnBuscarFiltro.TabIndex = 6;
             btnBuscarFiltro.Text = "Buscar";
             btnBuscarFiltro.UseVisualStyleBackColor = false;
@@ -141,9 +149,10 @@
             btnMostrarProductos.BackColor = Color.FromArgb(14, 93, 136);
             btnMostrarProductos.Cursor = Cursors.Hand;
             btnMostrarProductos.ForeColor = Color.White;
-            btnMostrarProductos.Location = new Point(771, 823);
+            btnMostrarProductos.Location = new Point(1638, 1687);
+            btnMostrarProductos.Margin = new Padding(6, 6, 6, 6);
             btnMostrarProductos.Name = "btnMostrarProductos";
-            btnMostrarProductos.Size = new Size(223, 58);
+            btnMostrarProductos.Size = new Size(474, 119);
             btnMostrarProductos.TabIndex = 9;
             btnMostrarProductos.Text = "Productos";
             btnMostrarProductos.UseVisualStyleBackColor = false;
@@ -154,9 +163,10 @@
             btnMostrarClientes.BackColor = Color.FromArgb(14, 93, 136);
             btnMostrarClientes.Cursor = Cursors.Hand;
             btnMostrarClientes.ForeColor = Color.White;
-            btnMostrarClientes.Location = new Point(542, 823);
+            btnMostrarClientes.Location = new Point(1152, 1687);
+            btnMostrarClientes.Margin = new Padding(6, 6, 6, 6);
             btnMostrarClientes.Name = "btnMostrarClientes";
-            btnMostrarClientes.Size = new Size(223, 58);
+            btnMostrarClientes.Size = new Size(474, 119);
             btnMostrarClientes.TabIndex = 8;
             btnMostrarClientes.Text = "Clientes";
             btnMostrarClientes.UseVisualStyleBackColor = false;
@@ -167,9 +177,10 @@
             btnMostrarBarberos.BackColor = Color.FromArgb(14, 93, 136);
             btnMostrarBarberos.Cursor = Cursors.Hand;
             btnMostrarBarberos.ForeColor = Color.White;
-            btnMostrarBarberos.Location = new Point(326, 823);
+            btnMostrarBarberos.Location = new Point(693, 1687);
+            btnMostrarBarberos.Margin = new Padding(6, 6, 6, 6);
             btnMostrarBarberos.Name = "btnMostrarBarberos";
-            btnMostrarBarberos.Size = new Size(210, 58);
+            btnMostrarBarberos.Size = new Size(446, 119);
             btnMostrarBarberos.TabIndex = 7;
             btnMostrarBarberos.Text = "Barberos";
             btnMostrarBarberos.UseVisualStyleBackColor = false;
@@ -182,9 +193,10 @@
             btnRealizarVentas.FlatAppearance.BorderColor = Color.CadetBlue;
             btnRealizarVentas.FlatAppearance.BorderSize = 2;
             btnRealizarVentas.ForeColor = Color.White;
-            btnRealizarVentas.Location = new Point(1550, 243);
+            btnRealizarVentas.Location = new Point(3294, 498);
+            btnRealizarVentas.Margin = new Padding(6, 6, 6, 6);
             btnRealizarVentas.Name = "btnRealizarVentas";
-            btnRealizarVentas.Size = new Size(253, 49);
+            btnRealizarVentas.Size = new Size(538, 100);
             btnRealizarVentas.TabIndex = 10;
             btnRealizarVentas.Text = "Realizar Venta";
             btnRealizarVentas.UseVisualStyleBackColor = false;
@@ -194,9 +206,10 @@
             // 
             btnAgendarCita.BackColor = Color.FromArgb(14, 93, 136);
             btnAgendarCita.ForeColor = Color.White;
-            btnAgendarCita.Location = new Point(1550, 298);
+            btnAgendarCita.Location = new Point(3294, 611);
+            btnAgendarCita.Margin = new Padding(6, 6, 6, 6);
             btnAgendarCita.Name = "btnAgendarCita";
-            btnAgendarCita.Size = new Size(253, 49);
+            btnAgendarCita.Size = new Size(538, 100);
             btnAgendarCita.TabIndex = 11;
             btnAgendarCita.Text = "Agendar Cita";
             btnAgendarCita.UseVisualStyleBackColor = false;
@@ -206,9 +219,10 @@
             button1.BackColor = Color.FromArgb(14, 93, 136);
             button1.Cursor = Cursors.Hand;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(80, 395);
+            button1.Location = new Point(170, 810);
+            button1.Margin = new Padding(6, 6, 6, 6);
             button1.Name = "button1";
-            button1.Size = new Size(210, 41);
+            button1.Size = new Size(446, 84);
             button1.TabIndex = 12;
             button1.Text = "Citas";
             button1.UseVisualStyleBackColor = false;
@@ -218,9 +232,10 @@
             button2.BackColor = Color.FromArgb(14, 93, 136);
             button2.Cursor = Cursors.Hand;
             button2.ForeColor = Color.White;
-            button2.Location = new Point(80, 232);
+            button2.Location = new Point(170, 476);
+            button2.Margin = new Padding(6, 6, 6, 6);
             button2.Name = "button2";
-            button2.Size = new Size(210, 41);
+            button2.Size = new Size(446, 84);
             button2.TabIndex = 13;
             button2.Text = "Ventas";
             button2.UseVisualStyleBackColor = false;
@@ -233,19 +248,21 @@
             grpGestiones.Controls.Add(button2);
             grpGestiones.Controls.Add(btnGestionProductos);
             grpGestiones.Controls.Add(btnGestionClientes);
-            grpGestiones.Location = new Point(1488, 445);
+            grpGestiones.Location = new Point(3162, 912);
+            grpGestiones.Margin = new Padding(6, 6, 6, 6);
             grpGestiones.Name = "grpGestiones";
-            grpGestiones.Size = new Size(360, 505);
+            grpGestiones.Padding = new Padding(6, 6, 6, 6);
+            grpGestiones.Size = new Size(765, 1035);
             grpGestiones.TabIndex = 14;
             grpGestiones.TabStop = false;
             grpGestiones.Text = "Gestión de Datos";
             // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(3844, 2163);
             Controls.Add(grpGestiones);
             Controls.Add(btnAgendarCita);
             Controls.Add(btnRealizarVentas);
@@ -256,6 +273,7 @@
             Controls.Add(txtFiltrarNombre);
             Controls.Add(label1);
             Controls.Add(dgvMostrar);
+            Margin = new Padding(6, 6, 6, 6);
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";

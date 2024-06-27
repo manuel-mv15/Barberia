@@ -15,7 +15,7 @@ namespace Barberia
         public Home()
         {
             InitializeComponent();
-           
+
         }
         string tbl = "";
         string consulta = "";
@@ -46,8 +46,8 @@ namespace Barberia
             if (txtFiltrarNombre.Text != null)// verificamos que el campo no este vacio
             {
                 // verificabos que tabla es y creamos la consulta
-               
-            //    dgvMostrar.DataSource = consultas.Buscardato(tbl,txtFiltrarNombre.Text);
+
+                dgvMostrar.DataSource = consultas.Buscardato(tbl, txtFiltrarNombre.Text);
 
             }
             else
@@ -91,6 +91,21 @@ namespace Barberia
         private void Home_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtFiltrarNombre_TextChanged(object sender, EventArgs e)
+        {
+            string filtroNombre = txtFiltrarNombre.Text;
+            
+            if (!string.IsNullOrEmpty(filtroNombre))
+            {
+                
+                dgvMostrar.DataSource = consultas.Buscardato(tbl, filtroNombre);
+            }
+            else
+            {
+                dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
+            }
         }
     }
 }

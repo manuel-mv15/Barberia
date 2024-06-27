@@ -65,15 +65,15 @@ namespace Barberia
 
             if (tbl == "tbl_clientes")
             {
-                consulta += $" WHERE Nombre_Cliente = '{Nombre}';";
+                consulta += $" WHERE Nombre_Cliente LIKE '%{Nombre}%';";
             }
             else if (tbl == "tbl_barberos")
             {
-                consulta += $" WHERE Nombre_Barbero = '{Nombre}';";
+                consulta += $" WHERE Nombre_Barbero LIKE '%{Nombre}%';";
             }
             else if (tbl == " tbl_productos")
             {
-                consulta += $" WHERE Nombre = '{Nombre}';";
+                consulta += $" WHERE Nombre  LIKE '%{Nombre}%';";
             }
             else
             {
