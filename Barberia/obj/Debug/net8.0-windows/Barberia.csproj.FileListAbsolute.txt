@@ -108,3 +108,4 @@ C:\Users\famil\source\repos\Barberia2\Barberia\obj\Debug\net8.0-windows\refint\B
 C:\Users\famil\source\repos\Barberia2\Barberia\obj\Debug\net8.0-windows\Barberia.pdb
 C:\Users\famil\source\repos\Barberia2\Barberia\obj\Debug\net8.0-windows\Barberia.genruntimeconfig.cache
 C:\Users\famil\source\repos\Barberia2\Barberia\obj\Debug\net8.0-windows\ref\Barberia.dll
+C:\Users\famil\source\repos\Barberia2\Barberia\obj\Debug\net8.0-windows\Barberia.Properties.Resources.resources

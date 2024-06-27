@@ -47,156 +47,179 @@
             // 
             // btnGestionUsuarios
             // 
-            btnGestionUsuarios.Location = new Point(26, 25);
-            btnGestionUsuarios.Margin = new Padding(6);
+            btnGestionUsuarios.BackColor = Color.FromArgb(14, 93, 136);
+            btnGestionUsuarios.Cursor = Cursors.Hand;
+            btnGestionUsuarios.ForeColor = Color.White;
+            btnGestionUsuarios.Location = new Point(12, 12);
             btnGestionUsuarios.Name = "btnGestionUsuarios";
-            btnGestionUsuarios.Size = new Size(446, 84);
+            btnGestionUsuarios.Size = new Size(210, 41);
             btnGestionUsuarios.TabIndex = 0;
             btnGestionUsuarios.Text = "Usuarios";
-            btnGestionUsuarios.UseVisualStyleBackColor = true;
+            btnGestionUsuarios.UseVisualStyleBackColor = false;
             btnGestionUsuarios.Click += btnGestionUsuarios_Click;
             // 
             // btnGestionClientes
             // 
-            btnGestionClientes.Location = new Point(26, 121);
-            btnGestionClientes.Margin = new Padding(6);
+            btnGestionClientes.BackColor = Color.FromArgb(14, 93, 136);
+            btnGestionClientes.Cursor = Cursors.Hand;
+            btnGestionClientes.ForeColor = Color.White;
+            btnGestionClientes.Location = new Point(12, 59);
             btnGestionClientes.Name = "btnGestionClientes";
-            btnGestionClientes.Size = new Size(447, 84);
+            btnGestionClientes.Size = new Size(210, 41);
             btnGestionClientes.TabIndex = 1;
             btnGestionClientes.Text = "Clientes";
-            btnGestionClientes.UseVisualStyleBackColor = true;
+            btnGestionClientes.UseVisualStyleBackColor = false;
             btnGestionClientes.Click += btnGestionClientes_Click;
             // 
             // btnGestionProductos
             // 
-            btnGestionProductos.Location = new Point(484, 25);
-            btnGestionProductos.Margin = new Padding(6);
+            btnGestionProductos.BackColor = Color.FromArgb(14, 93, 136);
+            btnGestionProductos.Cursor = Cursors.Hand;
+            btnGestionProductos.ForeColor = Color.White;
+            btnGestionProductos.Location = new Point(228, 12);
             btnGestionProductos.Name = "btnGestionProductos";
-            btnGestionProductos.Size = new Size(447, 84);
+            btnGestionProductos.Size = new Size(210, 41);
             btnGestionProductos.TabIndex = 2;
             btnGestionProductos.Text = "Productos";
-            btnGestionProductos.UseVisualStyleBackColor = true;
+            btnGestionProductos.UseVisualStyleBackColor = false;
             btnGestionProductos.Click += btnGestionProductos_Click;
             // 
             // dgvMostrar
             // 
+            dgvMostrar.AllowUserToAddRows = false;
+            dgvMostrar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMostrar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMostrar.Location = new Point(47, 564);
-            dgvMostrar.Margin = new Padding(6);
+            dgvMostrar.Location = new Point(22, 275);
             dgvMostrar.Name = "dgvMostrar";
             dgvMostrar.RowHeadersWidth = 51;
-            dgvMostrar.Size = new Size(2635, 726);
+            dgvMostrar.Size = new Size(1240, 354);
             dgvMostrar.TabIndex = 3;
             dgvMostrar.CellContentClick += dgvMostrar_CellContentClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(47, 494);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Location = new Point(22, 241);
             label1.Name = "label1";
-            label1.Size = new Size(135, 41);
+            label1.Size = new Size(67, 20);
             label1.TabIndex = 4;
             label1.Text = "Nombre:";
             // 
             // txtFiltrarNombre
             // 
-            txtFiltrarNombre.Location = new Point(202, 488);
-            txtFiltrarNombre.Margin = new Padding(6);
+            txtFiltrarNombre.Location = new Point(95, 238);
             txtFiltrarNombre.Name = "txtFiltrarNombre";
-            txtFiltrarNombre.Size = new Size(493, 47);
+            txtFiltrarNombre.Size = new Size(234, 27);
             txtFiltrarNombre.TabIndex = 5;
             // 
             // btnBuscarFiltro
             // 
-            btnBuscarFiltro.Location = new Point(759, 459);
-            btnBuscarFiltro.Margin = new Padding(6);
+            btnBuscarFiltro.BackColor = Color.FromArgb(14, 93, 136);
+            btnBuscarFiltro.Cursor = Cursors.Hand;
+            btnBuscarFiltro.ForeColor = Color.White;
+            btnBuscarFiltro.Location = new Point(357, 224);
             btnBuscarFiltro.Name = "btnBuscarFiltro";
-            btnBuscarFiltro.Size = new Size(382, 84);
+            btnBuscarFiltro.Size = new Size(180, 41);
             btnBuscarFiltro.TabIndex = 6;
             btnBuscarFiltro.Text = "Buscar";
-            btnBuscarFiltro.UseVisualStyleBackColor = true;
+            btnBuscarFiltro.UseVisualStyleBackColor = false;
             btnBuscarFiltro.Click += btnBuscarFiltro_Click;
             // 
             // btnMostrarProductos
             // 
-            btnMostrarProductos.Location = new Point(2208, 459);
-            btnMostrarProductos.Margin = new Padding(6);
+            btnMostrarProductos.BackColor = Color.FromArgb(14, 93, 136);
+            btnMostrarProductos.Cursor = Cursors.Hand;
+            btnMostrarProductos.ForeColor = Color.White;
+            btnMostrarProductos.Location = new Point(1039, 224);
             btnMostrarProductos.Name = "btnMostrarProductos";
-            btnMostrarProductos.Size = new Size(474, 84);
+            btnMostrarProductos.Size = new Size(223, 41);
             btnMostrarProductos.TabIndex = 9;
             btnMostrarProductos.Text = "Productos";
-            btnMostrarProductos.UseVisualStyleBackColor = true;
+            btnMostrarProductos.UseVisualStyleBackColor = false;
             btnMostrarProductos.Click += btnMostrarProductos_Click;
             // 
             // btnMostrarClientes
             // 
-            btnMostrarClientes.Location = new Point(1721, 459);
-            btnMostrarClientes.Margin = new Padding(6);
+            btnMostrarClientes.BackColor = Color.FromArgb(14, 93, 136);
+            btnMostrarClientes.Cursor = Cursors.Hand;
+            btnMostrarClientes.ForeColor = Color.White;
+            btnMostrarClientes.Location = new Point(810, 224);
             btnMostrarClientes.Name = "btnMostrarClientes";
-            btnMostrarClientes.Size = new Size(474, 84);
+            btnMostrarClientes.Size = new Size(223, 41);
             btnMostrarClientes.TabIndex = 8;
             btnMostrarClientes.Text = "Clientes";
-            btnMostrarClientes.UseVisualStyleBackColor = true;
+            btnMostrarClientes.UseVisualStyleBackColor = false;
             btnMostrarClientes.Click += btnMostrarClientes_Click;
             // 
             // btnMostrarBarberos
             // 
-            btnMostrarBarberos.Location = new Point(1262, 459);
-            btnMostrarBarberos.Margin = new Padding(6);
+            btnMostrarBarberos.BackColor = Color.FromArgb(14, 93, 136);
+            btnMostrarBarberos.Cursor = Cursors.Hand;
+            btnMostrarBarberos.ForeColor = Color.White;
+            btnMostrarBarberos.Location = new Point(594, 224);
             btnMostrarBarberos.Name = "btnMostrarBarberos";
-            btnMostrarBarberos.Size = new Size(446, 84);
+            btnMostrarBarberos.Size = new Size(210, 41);
             btnMostrarBarberos.TabIndex = 7;
             btnMostrarBarberos.Text = "Barberos";
-            btnMostrarBarberos.UseVisualStyleBackColor = true;
+            btnMostrarBarberos.UseVisualStyleBackColor = false;
             btnMostrarBarberos.Click += btnMostrarUsuarios_Click;
             // 
             // btnRealizarVentas
             // 
-            btnRealizarVentas.Location = new Point(2144, 25);
-            btnRealizarVentas.Margin = new Padding(6);
+            btnRealizarVentas.BackColor = Color.FromArgb(14, 93, 136);
+            btnRealizarVentas.Cursor = Cursors.Hand;
+            btnRealizarVentas.FlatAppearance.BorderColor = Color.CadetBlue;
+            btnRealizarVentas.FlatAppearance.BorderSize = 2;
+            btnRealizarVentas.ForeColor = Color.White;
+            btnRealizarVentas.Location = new Point(1009, 12);
             btnRealizarVentas.Name = "btnRealizarVentas";
-            btnRealizarVentas.Size = new Size(538, 100);
+            btnRealizarVentas.Size = new Size(253, 49);
             btnRealizarVentas.TabIndex = 10;
             btnRealizarVentas.Text = "Realizar Venta";
-            btnRealizarVentas.UseVisualStyleBackColor = true;
+            btnRealizarVentas.UseVisualStyleBackColor = false;
             btnRealizarVentas.Click += btnRealizarVentas_Click;
             // 
             // btnAgendarCita
             // 
-            btnAgendarCita.Location = new Point(2144, 137);
-            btnAgendarCita.Margin = new Padding(6);
+            btnAgendarCita.BackColor = Color.FromArgb(14, 93, 136);
+            btnAgendarCita.ForeColor = Color.White;
+            btnAgendarCita.Location = new Point(1009, 67);
             btnAgendarCita.Name = "btnAgendarCita";
-            btnAgendarCita.Size = new Size(538, 100);
+            btnAgendarCita.Size = new Size(253, 49);
             btnAgendarCita.TabIndex = 11;
             btnAgendarCita.Text = "Agendar Cita";
-            btnAgendarCita.UseVisualStyleBackColor = true;
+            btnAgendarCita.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            button1.Location = new Point(484, 121);
-            button1.Margin = new Padding(6);
+            button1.BackColor = Color.FromArgb(14, 93, 136);
+            button1.Cursor = Cursors.Hand;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(228, 59);
             button1.Name = "button1";
-            button1.Size = new Size(447, 84);
+            button1.Size = new Size(210, 41);
             button1.TabIndex = 12;
             button1.Text = "Citas";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            button2.Location = new Point(943, 25);
-            button2.Margin = new Padding(6);
+            button2.BackColor = Color.FromArgb(14, 93, 136);
+            button2.Cursor = Cursors.Hand;
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(444, 12);
             button2.Name = "button2";
-            button2.Size = new Size(447, 84);
+            button2.Size = new Size(210, 41);
             button2.TabIndex = 13;
             button2.Text = "Ventas";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2707, 1324);
+            BackColor = Color.White;
+            ClientSize = new Size(1287, 663);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(btnAgendarCita);
@@ -211,8 +234,8 @@
             Controls.Add(btnGestionProductos);
             Controls.Add(btnGestionClientes);
             Controls.Add(btnGestionUsuarios);
-            Margin = new Padding(6);
             Name = "Home";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
             Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMostrar).EndInit();

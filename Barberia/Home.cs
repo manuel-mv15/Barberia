@@ -15,6 +15,7 @@ namespace Barberia
         public Home()
         {
             InitializeComponent();
+           
         }
         string tbl = "";
         string consulta = "";

@@ -11,6 +11,8 @@ namespace Barberia
         public InicioDeSecion()
         {
             InitializeComponent();
+            this.Text = "Inicio de Sesión — Barber Shop";
+            pictureBox1.Image = Properties.Resources.barbero;
 
         }
         private void btn_Ingresar_Click(object sender, EventArgs e)
@@ -58,9 +60,14 @@ namespace Barberia
             }
 
         }
-        
+
 
         private void InicioDeSecion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
