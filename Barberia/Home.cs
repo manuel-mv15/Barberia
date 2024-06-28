@@ -59,21 +59,31 @@ namespace Barberia
 
         private void btnMostrarUsuarios_Click(object sender, EventArgs e)
         {
+            dgvMostrar.Visible = true;
+            lblFiltroNombre.Visible = true;
+            txtFiltrarNombre.Visible = true;
             tbl = "tbl_barberos";
             dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
         }
 
         private void btnMostrarClientes_Click(object sender, EventArgs e)
         {
+            dgvMostrar.Visible = true;
+            lblFiltroNombre.Visible = true;
+            txtFiltrarNombre.Visible = true;
             tbl = "tbl_clientes";
             dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
         }
 
         private void btnMostrarProductos_Click(object sender, EventArgs e)
         {
+            dgvMostrar.Visible = true;
+            lblFiltroNombre.Visible = true;
+            txtFiltrarNombre.Visible = true;
             tbl = "tbl_productos";
 
             dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
+
         }
 
         private void dgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
