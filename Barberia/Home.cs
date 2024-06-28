@@ -12,10 +12,11 @@ namespace Barberia
 {
     public partial class Home : Form
     {
-        public Home()
+       public int IDUSUARIO { get; set; }
+        public Home(int id)
         {
             InitializeComponent();
-
+            this.IDUSUARIO = id;
         }
         string tbl = "";
         string consulta = "";

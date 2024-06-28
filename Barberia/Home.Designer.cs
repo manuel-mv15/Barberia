@@ -54,7 +54,7 @@
             btnGestionUsuarios.Cursor = Cursors.Hand;
             btnGestionUsuarios.ForeColor = Color.White;
             btnGestionUsuarios.Location = new Point(170, 150);
-            btnGestionUsuarios.Margin = new Padding(6, 6, 6, 6);
+            btnGestionUsuarios.Margin = new Padding(6);
             btnGestionUsuarios.Name = "btnGestionUsuarios";
             btnGestionUsuarios.Size = new Size(446, 84);
             btnGestionUsuarios.TabIndex = 0;
@@ -68,7 +68,7 @@
             btnGestionClientes.Cursor = Cursors.Hand;
             btnGestionClientes.ForeColor = Color.White;
             btnGestionClientes.Location = new Point(170, 642);
-            btnGestionClientes.Margin = new Padding(6, 6, 6, 6);
+            btnGestionClientes.Margin = new Padding(6);
             btnGestionClientes.Name = "btnGestionClientes";
             btnGestionClientes.Size = new Size(446, 84);
             btnGestionClientes.TabIndex = 1;
@@ -82,7 +82,7 @@
             btnGestionProductos.Cursor = Cursors.Hand;
             btnGestionProductos.ForeColor = Color.White;
             btnGestionProductos.Location = new Point(170, 305);
-            btnGestionProductos.Margin = new Padding(6, 6, 6, 6);
+            btnGestionProductos.Margin = new Padding(6);
             btnGestionProductos.Name = "btnGestionProductos";
             btnGestionProductos.Size = new Size(446, 84);
             btnGestionProductos.TabIndex = 2;
@@ -104,7 +104,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dgvMostrar.DefaultCellStyle = dataGridViewCellStyle1;
             dgvMostrar.Location = new Point(51, 476);
-            dgvMostrar.Margin = new Padding(6, 6, 6, 6);
+            dgvMostrar.Margin = new Padding(6);
             dgvMostrar.Name = "dgvMostrar";
             dgvMostrar.RowHeadersWidth = 51;
             dgvMostrar.Size = new Size(2888, 1138);
@@ -124,7 +124,7 @@
             // txtFiltrarNombre
             // 
             txtFiltrarNombre.Location = new Point(208, 381);
-            txtFiltrarNombre.Margin = new Padding(6, 6, 6, 6);
+            txtFiltrarNombre.Margin = new Padding(6);
             txtFiltrarNombre.Name = "txtFiltrarNombre";
             txtFiltrarNombre.Size = new Size(493, 47);
             txtFiltrarNombre.TabIndex = 5;
@@ -136,12 +136,13 @@
             btnBuscarFiltro.Cursor = Cursors.Hand;
             btnBuscarFiltro.ForeColor = Color.White;
             btnBuscarFiltro.Location = new Point(765, 353);
-            btnBuscarFiltro.Margin = new Padding(6, 6, 6, 6);
+            btnBuscarFiltro.Margin = new Padding(6);
             btnBuscarFiltro.Name = "btnBuscarFiltro";
             btnBuscarFiltro.Size = new Size(382, 84);
             btnBuscarFiltro.TabIndex = 6;
             btnBuscarFiltro.Text = "Buscar";
             btnBuscarFiltro.UseVisualStyleBackColor = false;
+            btnBuscarFiltro.Visible = false;
             btnBuscarFiltro.Click += btnBuscarFiltro_Click;
             // 
             // btnMostrarProductos
@@ -150,7 +151,7 @@
             btnMostrarProductos.Cursor = Cursors.Hand;
             btnMostrarProductos.ForeColor = Color.White;
             btnMostrarProductos.Location = new Point(1638, 1687);
-            btnMostrarProductos.Margin = new Padding(6, 6, 6, 6);
+            btnMostrarProductos.Margin = new Padding(6);
             btnMostrarProductos.Name = "btnMostrarProductos";
             btnMostrarProductos.Size = new Size(474, 119);
             btnMostrarProductos.TabIndex = 9;
@@ -164,7 +165,7 @@
             btnMostrarClientes.Cursor = Cursors.Hand;
             btnMostrarClientes.ForeColor = Color.White;
             btnMostrarClientes.Location = new Point(1152, 1687);
-            btnMostrarClientes.Margin = new Padding(6, 6, 6, 6);
+            btnMostrarClientes.Margin = new Padding(6);
             btnMostrarClientes.Name = "btnMostrarClientes";
             btnMostrarClientes.Size = new Size(474, 119);
             btnMostrarClientes.TabIndex = 8;
@@ -178,7 +179,7 @@
             btnMostrarBarberos.Cursor = Cursors.Hand;
             btnMostrarBarberos.ForeColor = Color.White;
             btnMostrarBarberos.Location = new Point(693, 1687);
-            btnMostrarBarberos.Margin = new Padding(6, 6, 6, 6);
+            btnMostrarBarberos.Margin = new Padding(6);
             btnMostrarBarberos.Name = "btnMostrarBarberos";
             btnMostrarBarberos.Size = new Size(446, 119);
             btnMostrarBarberos.TabIndex = 7;
@@ -194,7 +195,7 @@
             btnRealizarVentas.FlatAppearance.BorderSize = 2;
             btnRealizarVentas.ForeColor = Color.White;
             btnRealizarVentas.Location = new Point(3294, 498);
-            btnRealizarVentas.Margin = new Padding(6, 6, 6, 6);
+            btnRealizarVentas.Margin = new Padding(6);
             btnRealizarVentas.Name = "btnRealizarVentas";
             btnRealizarVentas.Size = new Size(538, 100);
             btnRealizarVentas.TabIndex = 10;
@@ -207,7 +208,7 @@
             btnAgendarCita.BackColor = Color.FromArgb(14, 93, 136);
             btnAgendarCita.ForeColor = Color.White;
             btnAgendarCita.Location = new Point(3294, 611);
-            btnAgendarCita.Margin = new Padding(6, 6, 6, 6);
+            btnAgendarCita.Margin = new Padding(6);
             btnAgendarCita.Name = "btnAgendarCita";
             btnAgendarCita.Size = new Size(538, 100);
             btnAgendarCita.TabIndex = 11;
@@ -220,7 +221,7 @@
             button1.Cursor = Cursors.Hand;
             button1.ForeColor = Color.White;
             button1.Location = new Point(170, 810);
-            button1.Margin = new Padding(6, 6, 6, 6);
+            button1.Margin = new Padding(6);
             button1.Name = "button1";
             button1.Size = new Size(446, 84);
             button1.TabIndex = 12;
@@ -233,7 +234,7 @@
             button2.Cursor = Cursors.Hand;
             button2.ForeColor = Color.White;
             button2.Location = new Point(170, 476);
-            button2.Margin = new Padding(6, 6, 6, 6);
+            button2.Margin = new Padding(6);
             button2.Name = "button2";
             button2.Size = new Size(446, 84);
             button2.TabIndex = 13;
@@ -249,9 +250,9 @@
             grpGestiones.Controls.Add(btnGestionProductos);
             grpGestiones.Controls.Add(btnGestionClientes);
             grpGestiones.Location = new Point(3162, 912);
-            grpGestiones.Margin = new Padding(6, 6, 6, 6);
+            grpGestiones.Margin = new Padding(6);
             grpGestiones.Name = "grpGestiones";
-            grpGestiones.Padding = new Padding(6, 6, 6, 6);
+            grpGestiones.Padding = new Padding(6);
             grpGestiones.Size = new Size(765, 1035);
             grpGestiones.TabIndex = 14;
             grpGestiones.TabStop = false;
@@ -273,7 +274,7 @@
             Controls.Add(txtFiltrarNombre);
             Controls.Add(label1);
             Controls.Add(dgvMostrar);
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";

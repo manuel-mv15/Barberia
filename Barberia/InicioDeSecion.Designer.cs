@@ -46,20 +46,20 @@
             // 
             // txt_Usuario
             // 
-            txt_Usuario.Location = new Point(261, 256);
-            txt_Usuario.Margin = new Padding(1);
+            txt_Usuario.Location = new Point(555, 525);
+            txt_Usuario.Margin = new Padding(2);
             txt_Usuario.Name = "txt_Usuario";
-            txt_Usuario.Size = new Size(182, 27);
+            txt_Usuario.Size = new Size(382, 47);
             txt_Usuario.TabIndex = 0;
             txt_Usuario.Text = "Admin";
             // 
             // txt_Clave
             // 
-            txt_Clave.Location = new Point(261, 332);
-            txt_Clave.Margin = new Padding(1);
+            txt_Clave.Location = new Point(555, 681);
+            txt_Clave.Margin = new Padding(2);
             txt_Clave.Name = "txt_Clave";
             txt_Clave.PasswordChar = '*';
-            txt_Clave.Size = new Size(182, 27);
+            txt_Clave.Size = new Size(382, 47);
             txt_Clave.TabIndex = 1;
             txt_Clave.Text = "1234";
             // 
@@ -67,10 +67,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bookman Old Style", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(308, 226);
-            label1.Margin = new Padding(1, 0, 1, 0);
+            label1.Location = new Point(654, 463);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(76, 21);
+            label1.Size = new Size(150, 41);
             label1.TabIndex = 2;
             label1.Text = "Usuario";
             // 
@@ -78,10 +78,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Bookman Old Style", 10F);
-            label2.Location = new Point(321, 301);
-            label2.Margin = new Padding(1, 0, 1, 0);
+            label2.Location = new Point(682, 617);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(57, 21);
+            label2.Size = new Size(108, 41);
             label2.TabIndex = 3;
             label2.Text = "Clave";
             // 
@@ -92,10 +92,10 @@
             btn_Ingresar.FlatStyle = FlatStyle.Flat;
             btn_Ingresar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btn_Ingresar.ForeColor = SystemColors.ControlLight;
-            btn_Ingresar.Location = new Point(198, 392);
-            btn_Ingresar.Margin = new Padding(1);
+            btn_Ingresar.Location = new Point(421, 804);
+            btn_Ingresar.Margin = new Padding(2);
             btn_Ingresar.Name = "btn_Ingresar";
-            btn_Ingresar.Size = new Size(289, 44);
+            btn_Ingresar.Size = new Size(614, 90);
             btn_Ingresar.TabIndex = 4;
             btn_Ingresar.Text = "Iniciar Sesión";
             btn_Ingresar.UseVisualStyleBackColor = false;
@@ -105,9 +105,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Sitka Small", 25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(163, 47);
+            label3.Location = new Point(346, 96);
+            label3.Margin = new Padding(6, 0, 6, 0);
             label3.Name = "label3";
-            label3.Size = new Size(484, 62);
+            label3.Size = new Size(963, 121);
             label3.TabIndex = 6;
             label3.Text = "Manolo Barber Shop";
             label3.Click += label3_Click;
@@ -116,9 +117,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Sitka Small", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(219, 156);
+            label4.Location = new Point(465, 320);
+            label4.Margin = new Padding(6, 0, 6, 0);
             label4.Name = "label4";
-            label4.Size = new Size(241, 50);
+            label4.Size = new Size(472, 97);
             label4.TabIndex = 7;
             label4.Text = "USER LOGIN";
             // 
@@ -129,10 +131,10 @@
             btnRegistrarse.FlatStyle = FlatStyle.Flat;
             btnRegistrarse.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnRegistrarse.ForeColor = SystemColors.ControlLight;
-            btnRegistrarse.Location = new Point(198, 447);
-            btnRegistrarse.Margin = new Padding(1);
+            btnRegistrarse.Location = new Point(421, 916);
+            btnRegistrarse.Margin = new Padding(2);
             btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(289, 44);
+            btnRegistrarse.Size = new Size(614, 90);
             btnRegistrarse.TabIndex = 10;
             btnRegistrarse.Text = "Registrarse";
             btnRegistrarse.UseVisualStyleBackColor = false;
@@ -140,36 +142,39 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.barbero;
-            pictureBox1.Location = new Point(32, 12);
+            pictureBox1.Location = new Point(68, 25);
+            pictureBox1.Margin = new Padding(6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(125, 142);
+            pictureBox1.Size = new Size(266, 291);
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.usuario__7_;
-            pictureBox2.Location = new Point(219, 256);
+            pictureBox2.Location = new Point(465, 525);
+            pictureBox2.Margin = new Padding(6);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(38, 27);
+            pictureBox2.Size = new Size(81, 55);
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.candado;
-            pictureBox3.Location = new Point(219, 332);
+            pictureBox3.Location = new Point(465, 681);
+            pictureBox3.Margin = new Padding(6);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(38, 27);
+            pictureBox3.Size = new Size(81, 55);
             pictureBox3.TabIndex = 13;
             pictureBox3.TabStop = false;
             // 
             // InicioDeSecion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(680, 537);
+            ClientSize = new Size(1445, 1101);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -182,7 +187,7 @@
             Controls.Add(txt_Clave);
             Controls.Add(txt_Usuario);
             FormBorderStyle = FormBorderStyle.Fixed3D;
-            Margin = new Padding(1);
+            Margin = new Padding(2);
             Name = "InicioDeSecion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

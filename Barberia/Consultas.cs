@@ -62,6 +62,7 @@ namespace Barberia
         {
 
             string consulta = tblconsulta(tbl);
+            
 
             if (tbl == "tbl_clientes")
             {
@@ -71,7 +72,7 @@ namespace Barberia
             {
                 consulta += $" WHERE Nombre_Barbero LIKE '%{Nombre}%';";
             }
-            else if (tbl == " tbl_productos")
+            else if (tbl == "tbl_productos")
             {
                 consulta += $" WHERE Nombre  LIKE '%{Nombre}%';";
             }
@@ -79,7 +80,6 @@ namespace Barberia
             {
                 MessageBox.Show("Seleccione una tabla para filtrar ");
             }
-
             MySqlConnection miconcexcion = Conexcion.MyConnection();
             miconcexcion.Open();
             try

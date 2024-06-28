@@ -30,7 +30,7 @@ namespace Barberia
 
         private void btnHome_Click(object sender, EventArgs e) //terminado
         {
-            Home AbrirHome = new Home();
+            Home AbrirHome = new Home(1);
             AbrirHome.Show();
             Hide();
         }

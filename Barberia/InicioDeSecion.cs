@@ -2,11 +2,14 @@ using Microsoft.VisualBasic.ApplicationServices;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Barberia
 {
     public partial class InicioDeSecion : Form
+
     {
+        public int IDUSUARIO { get; private set; }
         Consultas consultas = new Consultas();
         public InicioDeSecion()
         {
@@ -21,20 +24,24 @@ namespace Barberia
             // inicio de secion 
             string Usuario = txt_Usuario.Text;
             string Clave = txt_Clave.Text;
+            string claveEncriptada = encriptador.Encriptar(Clave);
+            string consultaPrimaria = $"SELECT * FROM tbl_usuarios WHERE Usuario = '{Usuario}' AND Clave = '{claveEncriptada}';";
+            string consultaSecundaria = $"SELECT * FROM `tbl_clientes` WHERE `Usuario` ={Usuario} and  `Contraseña` ={claveEncriptada}";
 
-            string consulta = $"SELECT * FROM tbl_usuarios WHERE Usuario = '{Usuario}' and Clave = '{encriptador.Encriptar(Clave)}';";
-            // coneccion a la base de datos 
-            MySqlConnection conexcion = Conexcion.MyConnection();
-            conexcion.Open();
+            MySqlConnection conexion = Conexcion.MyConnection();
+            conexion.Open();
+
             try
             {
-                MySqlCommand cmd = new MySqlCommand(consulta, conexcion);
-                cmd.ExecuteNonQuery();
+                // Primera consulta
+                MySqlCommand cmdPrimaria = new MySqlCommand(consultaPrimaria, conexion);
+                int datoPrimario = Convert.ToInt32(cmdPrimaria.ExecuteScalar());
 
-                int dato = Convert.ToInt32(cmd.ExecuteScalar());
-                if (dato > 0)
+                if (datoPrimario > 0)
                 {
-                    consulta = consulta = $"SELECT Tipo_Usuario FROM tbl_usuarios WHERE Usuario = '{txt_Usuario.Text}'";
+
+
+                   string consulta =  $"SELECT Tipo_Usuario FROM tbl_usuarios WHERE Usuario = '{txt_Usuario.Text}'";
                     if ("Super Usuario" == consultas.BuscarDato(consulta))
                     {
                         MessageBox.Show("Hola " + consultas.BuscarDato(consulta));
@@ -47,18 +54,42 @@ namespace Barberia
                     {
 
                     }
+                    IDUSUARIO = Convert.ToInt32(consultas.BuscarDato($"SELECT `idUsuario` FROM tbl_usuarios WHERE `Usuario` = '{Usuario}'"));
 
-                    Home abrirHome = new Home();
+                    // Usuario encontrado en la primera tabla
+                    Home abrirHome = new Home(IDUSUARIO); // Asumiendo que tienes el IDUSUARIO o puedes usar el Usuario directamente
                     abrirHome.Show();
-                    Hide();
+                    this.Hide();
+                }
+                else
+                {
+                    // Usuario no encontrado en la primera tabla, realizar la segunda consulta
+                    MySqlCommand cmdSecundaria = new MySqlCommand(consultaSecundaria, conexion);
+                    int datoSecundario = Convert.ToInt32(cmdSecundaria.ExecuteScalar());
 
+                    if (datoSecundario > 0)
+                    {
+
+                        MessageBox.Show("Usuario ");
+                    }
+                    else
+                    {
+                        // Usuario no encontrado en ninguna tabla
+                        MessageBox.Show("Usuario o clave incorrectos.");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error " + ex);
+                MessageBox.Show("Error: " + ex.Message);
             }
-
+            finally
+            {
+                conexion.Close();
+            }
+            MySqlConnection conexcion = Conexcion.MyConnection();
+            conexcion.Open();
+           
         }
 
 
