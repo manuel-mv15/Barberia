@@ -35,7 +35,6 @@
             dgvMostrar = new DataGridView();
             label1 = new Label();
             txtFiltrarNombre = new TextBox();
-            btnBuscarFiltro = new Button();
             btnMostrarProductos = new Button();
             btnMostrarClientes = new Button();
             btnMostrarBarberos = new Button();
@@ -129,21 +128,6 @@
             txtFiltrarNombre.Size = new Size(493, 47);
             txtFiltrarNombre.TabIndex = 5;
             txtFiltrarNombre.TextChanged += txtFiltrarNombre_TextChanged;
-            // 
-            // btnBuscarFiltro
-            // 
-            btnBuscarFiltro.BackColor = Color.FromArgb(14, 93, 136);
-            btnBuscarFiltro.Cursor = Cursors.Hand;
-            btnBuscarFiltro.ForeColor = Color.White;
-            btnBuscarFiltro.Location = new Point(765, 353);
-            btnBuscarFiltro.Margin = new Padding(6);
-            btnBuscarFiltro.Name = "btnBuscarFiltro";
-            btnBuscarFiltro.Size = new Size(382, 84);
-            btnBuscarFiltro.TabIndex = 6;
-            btnBuscarFiltro.Text = "Buscar";
-            btnBuscarFiltro.UseVisualStyleBackColor = false;
-            btnBuscarFiltro.Visible = false;
-            btnBuscarFiltro.Click += btnBuscarFiltro_Click;
             // 
             // btnMostrarProductos
             // 
@@ -270,7 +254,6 @@
             Controls.Add(btnMostrarProductos);
             Controls.Add(btnMostrarClientes);
             Controls.Add(btnMostrarBarberos);
-            Controls.Add(btnBuscarFiltro);
             Controls.Add(txtFiltrarNombre);
             Controls.Add(label1);
             Controls.Add(dgvMostrar);
@@ -293,7 +276,6 @@
         private DataGridView dgvMostrar;
         private Label label1;
         private TextBox txtFiltrarNombre;
-        private Button btnBuscarFiltro;
         private Button btnMostrarProductos;
         private Button btnMostrarClientes;
         private Button btnMostrarBarberos;
