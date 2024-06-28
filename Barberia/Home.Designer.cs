@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btnGestionUsuarios = new Button();
             btnGestionClientes = new Button();
             btnGestionProductos = new Button();
@@ -60,7 +60,7 @@
             btnGestionUsuarios.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnGestionUsuarios.ForeColor = Color.White;
             btnGestionUsuarios.Location = new Point(108, 968);
-            btnGestionUsuarios.Margin = new Padding(6, 6, 6, 6);
+            btnGestionUsuarios.Margin = new Padding(6);
             btnGestionUsuarios.Name = "btnGestionUsuarios";
             btnGestionUsuarios.Size = new Size(538, 111);
             btnGestionUsuarios.TabIndex = 0;
@@ -75,7 +75,7 @@
             btnGestionClientes.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnGestionClientes.ForeColor = Color.White;
             btnGestionClientes.Location = new Point(108, 1132);
-            btnGestionClientes.Margin = new Padding(6, 6, 6, 6);
+            btnGestionClientes.Margin = new Padding(6);
             btnGestionClientes.Name = "btnGestionClientes";
             btnGestionClientes.Size = new Size(538, 119);
             btnGestionClientes.TabIndex = 1;
@@ -90,7 +90,7 @@
             btnGestionProductos.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnGestionProductos.ForeColor = Color.White;
             btnGestionProductos.Location = new Point(108, 1509);
-            btnGestionProductos.Margin = new Padding(6, 6, 6, 6);
+            btnGestionProductos.Margin = new Padding(6);
             btnGestionProductos.Name = "btnGestionProductos";
             btnGestionProductos.Size = new Size(538, 117);
             btnGestionProductos.TabIndex = 2;
@@ -103,16 +103,16 @@
             dgvMostrar.AllowUserToAddRows = false;
             dgvMostrar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMostrar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(14, 93, 136);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvMostrar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(14, 93, 136);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvMostrar.DefaultCellStyle = dataGridViewCellStyle3;
             dgvMostrar.Location = new Point(871, 613);
-            dgvMostrar.Margin = new Padding(6, 6, 6, 6);
+            dgvMostrar.Margin = new Padding(6);
             dgvMostrar.Name = "dgvMostrar";
             dgvMostrar.RowHeadersWidth = 51;
             dgvMostrar.Size = new Size(3109, 1384);
@@ -135,7 +135,7 @@
             // txtFiltrarNombre
             // 
             txtFiltrarNombre.Location = new Point(1088, 508);
-            txtFiltrarNombre.Margin = new Padding(6, 6, 6, 6);
+            txtFiltrarNombre.Margin = new Padding(6);
             txtFiltrarNombre.Name = "txtFiltrarNombre";
             txtFiltrarNombre.Size = new Size(812, 47);
             txtFiltrarNombre.TabIndex = 5;
@@ -149,7 +149,7 @@
             btnMostrarProductos.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnMostrarProductos.ForeColor = Color.White;
             btnMostrarProductos.Location = new Point(2932, 316);
-            btnMostrarProductos.Margin = new Padding(6, 6, 6, 6);
+            btnMostrarProductos.Margin = new Padding(6);
             btnMostrarProductos.Name = "btnMostrarProductos";
             btnMostrarProductos.Size = new Size(538, 100);
             btnMostrarProductos.TabIndex = 9;
@@ -164,7 +164,7 @@
             btnMostrarClientes.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnMostrarClientes.ForeColor = Color.White;
             btnMostrarClientes.Location = new Point(2176, 316);
-            btnMostrarClientes.Margin = new Padding(6, 6, 6, 6);
+            btnMostrarClientes.Margin = new Padding(6);
             btnMostrarClientes.Name = "btnMostrarClientes";
             btnMostrarClientes.Size = new Size(538, 100);
             btnMostrarClientes.TabIndex = 8;
@@ -180,7 +180,7 @@
             btnMostrarBarberos.ForeColor = Color.White;
             btnMostrarBarberos.ImageAlign = ContentAlignment.MiddleLeft;
             btnMostrarBarberos.Location = new Point(1413, 316);
-            btnMostrarBarberos.Margin = new Padding(6, 6, 6, 6);
+            btnMostrarBarberos.Margin = new Padding(6);
             btnMostrarBarberos.Name = "btnMostrarBarberos";
             btnMostrarBarberos.Size = new Size(538, 100);
             btnMostrarBarberos.TabIndex = 7;
@@ -197,7 +197,7 @@
             btnRealizarVentas.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnRealizarVentas.ForeColor = Color.White;
             btnRealizarVentas.Location = new Point(108, 779);
-            btnRealizarVentas.Margin = new Padding(6, 6, 6, 6);
+            btnRealizarVentas.Margin = new Padding(6);
             btnRealizarVentas.Name = "btnRealizarVentas";
             btnRealizarVentas.Size = new Size(538, 119);
             btnRealizarVentas.TabIndex = 10;
@@ -211,12 +211,13 @@
             btnAgendarCita.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnAgendarCita.ForeColor = Color.White;
             btnAgendarCita.Location = new Point(108, 613);
-            btnAgendarCita.Margin = new Padding(6, 6, 6, 6);
+            btnAgendarCita.Margin = new Padding(6);
             btnAgendarCita.Name = "btnAgendarCita";
             btnAgendarCita.Size = new Size(538, 113);
             btnAgendarCita.TabIndex = 11;
             btnAgendarCita.Text = "Agendar Cita";
             btnAgendarCita.UseVisualStyleBackColor = false;
+            btnAgendarCita.Click += btnAgendarCita_Click;
             // 
             // button1
             // 
@@ -225,12 +226,13 @@
             button1.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             button1.ForeColor = Color.White;
             button1.Location = new Point(108, 1310);
-            button1.Margin = new Padding(6, 6, 6, 6);
+            button1.Margin = new Padding(6);
             button1.Name = "button1";
             button1.Size = new Size(538, 117);
             button1.TabIndex = 12;
             button1.Text = "Gestión de Citas";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -239,12 +241,13 @@
             button2.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             button2.ForeColor = Color.White;
             button2.Location = new Point(108, 1693);
-            button2.Margin = new Padding(6, 6, 6, 6);
+            button2.Margin = new Padding(6);
             button2.Name = "button2";
             button2.Size = new Size(538, 121);
             button2.TabIndex = 13;
             button2.Text = "Gestión de Ventas";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // btnCerrarSesion
             // 
@@ -252,7 +255,7 @@
             btnCerrarSesion.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnCerrarSesion.ForeColor = Color.White;
             btnCerrarSesion.Location = new Point(108, 1882);
-            btnCerrarSesion.Margin = new Padding(6, 6, 6, 6);
+            btnCerrarSesion.Margin = new Padding(6);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(538, 115);
             btnCerrarSesion.TabIndex = 15;
@@ -264,7 +267,7 @@
             // 
             pictureBox1.Image = Properties.Resources.barbero__3_;
             pictureBox1.Location = new Point(136, 92);
-            pictureBox1.Margin = new Padding(6, 6, 6, 6);
+            pictureBox1.Margin = new Padding(6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(302, 293);
             pictureBox1.TabIndex = 16;
@@ -354,7 +357,7 @@
             Controls.Add(txtFiltrarNombre);
             Controls.Add(lblFiltroNombre);
             Controls.Add(dgvMostrar);
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";

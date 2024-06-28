@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Barberia
 {
@@ -128,121 +131,119 @@ namespace Barberia
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            if(rbtnExcel.Checked)
+            if (rbtnExcel.Checked)
             {
-
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "CSV Files|*.csv";
-                saveFileDialog.Title = "Guardar como CSV";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ExportDataGridViewToCSV(dgvMostrar, saveFileDialog.FileName);
-                }
+                exportarExcel(dgvMostrar);
             }
-            else if(rbtnPdf.Checked)
+            else if (rbtnPdf.Checked)
             {
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "PDF Files|*.pdf";
-                saveFileDialog.Title = "Guardar como PDF";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ExportDataGridViewToPDF(dgvMostrar, saveFileDialog.FileName);
-                    MessageBox.Show("Exportación a PDF completada.");
-                }
+                exportarPDF(dgvMostrar);
             }
             else
             {
                 MessageBox.Show("Por favor seleccione en que lo quiere importar");
             }
         }
-        private void ExportDataGridViewToHTML(DataGridView dgv, string filename)
+        public void exportarExcel(DataGridView dgv)
         {
-            using (StreamWriter sw = new StreamWriter(filename))
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+            int indiceColumna = 0;
+            foreach (DataGridViewColumn col in dgv.Columns)
             {
-                sw.WriteLine("<html><head><style>table { width: 100%; border-collapse: collapse; } th, td { border: 1px solid black; padding: 8px; text-align: left; }</style></head><body>");
-                sw.WriteLine("<table>");
-
-                // Agregar los encabezados de columna
-                sw.WriteLine("<tr>");
-                foreach (DataGridViewColumn column in dgv.Columns)
+                indiceColumna++;
+                excel.Cells[1, indiceColumna] = col.Name;
+            }
+            int indiceFila = 0;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+                foreach (DataGridViewColumn col in dgv.Columns)
                 {
-                    sw.WriteLine($"<th>{column.HeaderText}</th>");
+                    indiceColumna++;
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
                 }
-                sw.WriteLine("</tr>");
+            }
+            excel.Visible = true;
+        }
+        private static void exportarPDF(DataGridView dgvMostrar)
+        {
+            // Create and configure the save file dialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+            saveFileDialog.Title = "Save PDF File";
+            saveFileDialog.FileName = "test.pdf";
 
-                // Agregar las filas del DataGridView
-                foreach (DataGridViewRow row in dgv.Rows)
+            // Show the dialog and check if the user clicked the save button
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Create a new PDF document with landscape A4 size
+                Document doc = new Document(PageSize.A4.Rotate());
+                try
                 {
-                    sw.WriteLine("<tr>");
-                    foreach (DataGridViewCell cell in row.Cells)
+                    // Get the instance of the PDF writer
+                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(saveFileDialog.FileName, FileMode.Create));
+                    doc.Open();
+
+                    // Create a new PDF table with the same number of columns as the DataGridView
+                    PdfPTable pdfTable = new PdfPTable(dgvMostrar.ColumnCount);
+                    pdfTable.DefaultCell.Padding = 3;
+                    pdfTable.WidthPercentage = 100;
+                    pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                    pdfTable.DefaultCell.BorderWidth = 1;
+
+                    // Add the headers from the DataGridView to the PDF table
+                    foreach (DataGridViewColumn column in dgvMostrar.Columns)
                     {
-                        sw.WriteLine($"<td>{cell.Value?.ToString()}</td>");
+                        PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                        pdfTable.AddCell(cell);
                     }
-                    sw.WriteLine("</tr>");
-                }
 
-                sw.WriteLine("</table>");
-                sw.WriteLine("</body></html>");
-            }
-        }
-        private void PrintHTMLToPDF(string htmlFilename, string pdfFilename)
-        {
-            var startInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = htmlFilename,
-                Verb = "print",
-                CreateNoWindow = true,
-                WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden
-            };
-
-            using (var process = new System.Diagnostics.Process { StartInfo = startInfo })
-            {
-                process.Start();
-            }
-        }
-
-        private void ExportDataGridViewToPDF(DataGridView dgv, string pdfFilename)
-        {
-            // Generar un archivo HTML temporal
-            string tempHtmlFilename = Path.Combine(Path.GetTempPath(), "temp.html");
-            ExportDataGridViewToHTML(dgv, tempHtmlFilename);
-
-            // Imprimir el archivo HTML como PDF
-            PrintHTMLToPDF(tempHtmlFilename, pdfFilename);
-
-            // Eliminar el archivo HTML temporal
-            File.Delete(tempHtmlFilename);
-        }
-
-        private void ExportDataGridViewToCSV(DataGridView dgv, string filename)
-        {
-            using (StreamWriter sw = new StreamWriter(filename))
-            {
-                // Escribir encabezados de columna
-                for (int i = 0; i < dgv.Columns.Count; i++)
-                {
-                    sw.Write(dgv.Columns[i].HeaderText);
-                    if (i < dgv.Columns.Count - 1) sw.Write(",");
-                }
-                sw.WriteLine();
-
-                // Escribir filas
-                foreach (DataGridViewRow row in dgv.Rows)
-                {
-                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    // Add the rows from the DataGridView to the PDF table
+                    foreach (DataGridViewRow row in dgvMostrar.Rows)
                     {
-                        sw.Write(row.Cells[i].Value?.ToString());
-                        if (i < dgv.Columns.Count - 1) sw.Write(",");
+                        // Avoid adding the empty row at the end
+                        if (!row.IsNewRow)
+                        {
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                // Check for null values in cells
+                                pdfTable.AddCell(cell.Value?.ToString() ?? string.Empty);
+                            }
+                        }
                     }
-                    sw.WriteLine();
+
+                    // Add the table to the PDF document
+                    doc.Add(pdfTable);
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    // Close the document
+                    doc.Close();
                 }
             }
-
-            MessageBox.Show("Exportación a CSV completada.");
         }
 
 
+        private void btnAgendarCita_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
