@@ -96,7 +96,6 @@
             // 
             dgvMostrar.AllowUserToAddRows = false;
             dgvMostrar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvMostrar.BackgroundColor = Color.FromArgb(14, 93, 136);
             dgvMostrar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;

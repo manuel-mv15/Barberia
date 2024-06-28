@@ -157,7 +157,7 @@ FROM tbl_clientes";
 
             else if (tbl == "tbl_ventas")
             {
-                consulta = "";
+                consulta = "SELECT * FROM `tbl_ventas`";
             }
             return consulta;
         }

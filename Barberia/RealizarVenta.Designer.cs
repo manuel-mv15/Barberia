@@ -28,183 +28,274 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            numericUpDown1 = new NumericUpDown();
-            dataGridView1 = new DataGridView();
-            dataGridView3 = new DataGridView();
-            button2 = new Button();
-            button3 = new Button();
+            btnHome = new Button();
+            nupCantidad = new NumericUpDown();
+            dgvMostrarDatos = new DataGridView();
+            dgvVenta = new DataGridView();
+            btnProductos = new Button();
+            btnClientes = new Button();
             textBox1 = new TextBox();
-            button4 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            btnBuscar = new Button();
+            btnAgregar = new Button();
+            btnComprar = new Button();
+            btnEliminar = new Button();
+            btnVentas = new Button();
+            label1 = new Label();
+            mtbFechaFacturacion = new MaskedTextBox();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
+            label3 = new Label();
+            ((System.ComponentModel.ISupportInitialize)nupCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMostrarDatos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVenta).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnHome
             // 
-            button1.Location = new Point(15, 6);
-            button1.Margin = new Padding(1);
-            button1.Name = "button1";
-            button1.Size = new Size(88, 28);
-            button1.TabIndex = 2;
-            button1.Text = "Home";
-            button1.UseVisualStyleBackColor = true;
+            btnHome.BackColor = Color.FromArgb(14, 93, 136);
+            btnHome.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
+            btnHome.ForeColor = SystemColors.Control;
+            btnHome.Location = new Point(190, 181);
+            btnHome.Margin = new Padding(1);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(139, 39);
+            btnHome.TabIndex = 2;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
-            // numericUpDown1
+            // nupCantidad
             // 
-            numericUpDown1.Location = new Point(501, 66);
-            numericUpDown1.Margin = new Padding(1);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(170, 27);
-            numericUpDown1.TabIndex = 3;
+            nupCantidad.Location = new Point(447, 312);
+            nupCantidad.Margin = new Padding(1);
+            nupCantidad.Name = "nupCantidad";
+            nupCantidad.Size = new Size(170, 27);
+            nupCantidad.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgvMostrarDatos
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(7, 105);
-            dataGridView1.Margin = new Padding(1);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 102;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1011, 539);
-            dataGridView1.TabIndex = 0;
+            dgvMostrarDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMostrarDatos.Location = new Point(35, 352);
+            dgvMostrarDatos.Margin = new Padding(1);
+            dgvMostrarDatos.Name = "dgvMostrarDatos";
+            dgvMostrarDatos.RowHeadersVisible = false;
+            dgvMostrarDatos.RowHeadersWidth = 102;
+            dgvMostrarDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMostrarDatos.Size = new Size(959, 677);
+            dgvMostrarDatos.TabIndex = 0;
             // 
-            // dataGridView3
+            // dgvVenta
             // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(1038, 100);
-            dataGridView3.Margin = new Padding(1);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 102;
-            dataGridView3.Size = new Size(681, 540);
-            dataGridView3.TabIndex = 4;
-            dataGridView3.CellContentClick += dataGridView3_CellContentClick;
+            dgvVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvVenta.Location = new Point(1025, 352);
+            dgvVenta.Margin = new Padding(1);
+            dgvVenta.Name = "dgvVenta";
+            dgvVenta.RowHeadersWidth = 102;
+            dgvVenta.Size = new Size(871, 677);
+            dgvVenta.TabIndex = 4;
+            dgvVenta.CellContentClick += dataGridView3_CellContentClick;
             // 
-            // button2
+            // btnProductos
             // 
-            button2.Location = new Point(144, 6);
-            button2.Margin = new Padding(1);
-            button2.Name = "button2";
-            button2.Size = new Size(88, 28);
-            button2.TabIndex = 5;
-            button2.Text = "Productos";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnProductos.BackColor = Color.FromArgb(14, 93, 136);
+            btnProductos.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
+            btnProductos.ForeColor = SystemColors.Control;
+            btnProductos.Location = new Point(35, 237);
+            btnProductos.Margin = new Padding(1);
+            btnProductos.Name = "btnProductos";
+            btnProductos.Size = new Size(139, 39);
+            btnProductos.TabIndex = 5;
+            btnProductos.Text = "Productos";
+            btnProductos.UseVisualStyleBackColor = false;
+            btnProductos.Click += button2_Click;
             // 
-            // button3
+            // btnClientes
             // 
-            button3.Location = new Point(265, 6);
-            button3.Margin = new Padding(1);
-            button3.Name = "button3";
-            button3.Size = new Size(88, 28);
-            button3.TabIndex = 6;
-            button3.Text = "Clientes";
-            button3.UseVisualStyleBackColor = true;
+            btnClientes.BackColor = Color.FromArgb(14, 93, 136);
+            btnClientes.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
+            btnClientes.ForeColor = SystemColors.Control;
+            btnClientes.Location = new Point(35, 181);
+            btnClientes.Margin = new Padding(1);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(139, 39);
+            btnClientes.TabIndex = 6;
+            btnClientes.Text = "Clientes";
+            btnClientes.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(7, 66);
+            textBox1.Location = new Point(35, 313);
             textBox1.Margin = new Padding(1);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(330, 27);
+            textBox1.Size = new Size(242, 27);
             textBox1.TabIndex = 7;
             // 
-            // button4
+            // btnBuscar
             // 
-            button4.Location = new Point(350, 65);
-            button4.Margin = new Padding(1);
-            button4.Name = "button4";
-            button4.Size = new Size(134, 29);
-            button4.TabIndex = 8;
-            button4.Text = "Buscar";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnBuscar.BackColor = Color.FromArgb(14, 93, 136);
+            btnBuscar.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscar.ForeColor = SystemColors.Control;
+            btnBuscar.Location = new Point(293, 297);
+            btnBuscar.Margin = new Padding(1);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(134, 43);
+            btnBuscar.TabIndex = 8;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += button4_Click;
             // 
-            // button6
+            // btnAgregar
             // 
-            button6.Location = new Point(691, 65);
-            button6.Margin = new Padding(1);
-            button6.Name = "button6";
-            button6.Size = new Size(88, 28);
-            button6.TabIndex = 11;
-            button6.Text = "Cantidad";
-            button6.UseVisualStyleBackColor = true;
+            btnAgregar.BackColor = Color.FromArgb(14, 93, 136);
+            btnAgregar.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregar.ForeColor = SystemColors.Control;
+            btnAgregar.Location = new Point(872, 297);
+            btnAgregar.Margin = new Padding(1);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(122, 43);
+            btnAgregar.TabIndex = 11;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
-            // button7
+            // btnComprar
             // 
-            button7.Location = new Point(1234, 62);
-            button7.Margin = new Padding(1);
-            button7.Name = "button7";
-            button7.Size = new Size(88, 28);
-            button7.TabIndex = 12;
-            button7.Text = "Comprar";
-            button7.UseVisualStyleBackColor = true;
+            btnComprar.BackColor = Color.FromArgb(14, 93, 136);
+            btnComprar.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnComprar.ForeColor = SystemColors.Control;
+            btnComprar.Location = new Point(1025, 295);
+            btnComprar.Margin = new Padding(1);
+            btnComprar.Name = "btnComprar";
+            btnComprar.Size = new Size(128, 43);
+            btnComprar.TabIndex = 12;
+            btnComprar.Text = "Comprar";
+            btnComprar.UseVisualStyleBackColor = false;
+            btnComprar.Click += btnComprar_Click;
             // 
-            // button8
+            // btnEliminar
             // 
-            button8.Location = new Point(1366, 62);
-            button8.Margin = new Padding(1);
-            button8.Name = "button8";
-            button8.Size = new Size(88, 28);
-            button8.TabIndex = 13;
-            button8.Text = "Eliminar";
-            button8.UseVisualStyleBackColor = true;
+            btnEliminar.BackColor = Color.FromArgb(14, 93, 136);
+            btnEliminar.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = SystemColors.Control;
+            btnEliminar.Location = new Point(1170, 295);
+            btnEliminar.Margin = new Padding(1);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(135, 43);
+            btnEliminar.TabIndex = 13;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btnVentas
             // 
-            button9.Location = new Point(374, 6);
-            button9.Margin = new Padding(1);
-            button9.Name = "button9";
-            button9.Size = new Size(88, 28);
-            button9.TabIndex = 14;
-            button9.Text = "Ventas";
-            button9.UseVisualStyleBackColor = true;
+            btnVentas.BackColor = Color.FromArgb(14, 93, 136);
+            btnVentas.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
+            btnVentas.ForeColor = SystemColors.Control;
+            btnVentas.Location = new Point(190, 237);
+            btnVentas.Margin = new Padding(1);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(139, 39);
+            btnVentas.TabIndex = 14;
+            btnVentas.Text = "Ventas";
+            btnVentas.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Sitka Small", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(633, 276);
+            label1.Name = "label1";
+            label1.Size = new Size(186, 23);
+            label1.TabIndex = 15;
+            label1.Text = "Fecha de Facturacion:";
+            // 
+            // mtbFechaFacturacion
+            // 
+            mtbFechaFacturacion.Location = new Point(639, 311);
+            mtbFechaFacturacion.Mask = "0000/00/00 00:00:00";
+            mtbFechaFacturacion.Name = "mtbFechaFacturacion";
+            mtbFechaFacturacion.Size = new Size(180, 27);
+            mtbFechaFacturacion.TabIndex = 16;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Sitka Small", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(152, 36);
+            label2.Name = "label2";
+            label2.Size = new Size(236, 88);
+            label2.TabIndex = 19;
+            label2.Text = "       Manolo  \r\n  Barber Shop\r\n";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.barbero__3_;
+            pictureBox1.Location = new Point(35, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(142, 143);
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Sitka Small", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(779, 36);
+            label3.Name = "label3";
+            label3.Size = new Size(394, 118);
+            label3.TabIndex = 20;
+            label3.Text = "VENTAS";
             // 
             // RealizarVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1741, 808);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button4);
+            ClientSize = new Size(1924, 1055);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(pictureBox1);
+            Controls.Add(mtbFechaFacturacion);
+            Controls.Add(label1);
+            Controls.Add(btnVentas);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnComprar);
+            Controls.Add(btnAgregar);
+            Controls.Add(btnBuscar);
             Controls.Add(textBox1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(dataGridView3);
-            Controls.Add(numericUpDown1);
-            Controls.Add(button1);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnClientes);
+            Controls.Add(btnProductos);
+            Controls.Add(dgvVenta);
+            Controls.Add(nupCantidad);
+            Controls.Add(btnHome);
+            Controls.Add(dgvMostrarDatos);
             Margin = new Padding(1);
             Name = "RealizarVenta";
             Text = "Realizar Venta — Manolo Barber Shop";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nupCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMostrarDatos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVenta).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button button1;
-        private NumericUpDown numericUpDown1;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView3;
-        private Button button2;
-        private Button button3;
+        private Button btnHome;
+        private NumericUpDown nupCantidad;
+        private DataGridView dgvMostrarDatos;
+        private DataGridView dgvVenta;
+        private Button btnProductos;
+        private Button btnClientes;
         private TextBox textBox1;
-        private Button button4;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
+        private Button btnBuscar;
+        private Button btnAgregar;
+        private Button btnComprar;
+        private Button btnEliminar;
+        private Button btnVentas;
+        private Label label1;
+        private MaskedTextBox mtbFechaFacturacion;
+        private Label label2;
+        private PictureBox pictureBox1;
+        private Label label3;
     }
 }
