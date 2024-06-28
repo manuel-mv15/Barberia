@@ -24,6 +24,7 @@ namespace Barberia
         string tbl = "";
         string consulta = "";
         Consultas consultas = new Consultas();
+        // bonotes para abrir otros formn
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
         {
             GestionUsuario AbriGestionUsuario = new GestionUsuario();
@@ -44,21 +45,8 @@ namespace Barberia
             AbrirGestionProducto.Show();
             Hide();
         }
-
-        private void btnBuscarFiltro_Click(object sender, EventArgs e)
-        {
-            if (txtFiltrarNombre.Text != null)// verificamos que el campo no este vacio
-            {
-                // verificabos que tabla es y creamos la consulta
-
-                dgvMostrar.DataSource = consultas.Buscardato(tbl, txtFiltrarNombre.Text);
-
-            }
-            else
-            {
-                MessageBox.Show("Asegurese de que la casilla 'Nombre' no este vacia");
-            }
-        }
+        //-----------------fin de botones para abrir otros formularios
+//botones para mostrar informacion
 
         private void btnMostrarUsuarios_Click(object sender, EventArgs e)
         {
@@ -88,7 +76,7 @@ namespace Barberia
             dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
 
         }
-
+        //-----------------fin de botones para mostrar informacion
         private void dgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -107,6 +95,7 @@ namespace Barberia
 
         }
 
+        //txt para buscar 
         private void txtFiltrarNombre_TextChanged(object sender, EventArgs e)
         {
             string filtroNombre = txtFiltrarNombre.Text;
@@ -128,7 +117,7 @@ namespace Barberia
             inicioDeSecion.Show();
             Hide();
         }
-
+        // btn para exportar
         private void btnImportar_Click(object sender, EventArgs e)
         {
             if (rbtnExcel.Checked)
@@ -144,6 +133,7 @@ namespace Barberia
                 MessageBox.Show("Por favor seleccione en que lo quiere importar");
             }
         }
+        // funcion para exportar a excel
         public void exportarExcel(DataGridView dgv)
         {
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
@@ -167,6 +157,7 @@ namespace Barberia
             }
             excel.Visible = true;
         }
+        //funcion para exportar a pdf
         private static void exportarPDF(DataGridView dgvMostrar)
         {
             // Create and configure the save file dialog
@@ -230,7 +221,9 @@ namespace Barberia
             }
         }
 
+        // fin de funciones para exportar
 
+        // btn para abrir formn
         private void btnAgendarCita_Click(object sender, EventArgs e)
         {
 

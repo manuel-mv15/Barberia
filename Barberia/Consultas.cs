@@ -11,7 +11,7 @@ namespace Barberia
 {
     internal class Consultas
     {
-
+        // funcion para llenar el dgv con los datos de la tbl
         public DataTable ActualizarTabla(string tbl)
         {
             MySqlConnection miconcexcion = Conexcion.MyConnection();
@@ -35,6 +35,7 @@ namespace Barberia
                 miconcexcion.Close();
             }
         }
+       // funcion para mostrar la tbl depende del nivel de usuario
         public DataTable ActualizarTabla(string tbl, int tipo)
         {
             MySqlConnection miconcexcion = Conexcion.MyConnection();
@@ -58,6 +59,7 @@ namespace Barberia
                 miconcexcion.Close();
             }
         }
+        // funcion para buscar por nombre, apellido y/o dui en la tbl tambien por marca si es producto
         public DataTable Buscardato(string tbl, string Nombre)
         {
 
@@ -113,25 +115,33 @@ namespace Barberia
             }
         }
         //---------
+        // con el nombre de la tbl devolvemos su consulta correspondiente
         private string tblconsulta(string tbl)
         {
             string consulta = "";
             if (tbl == "tbl_productos")
             {
                 consulta = @$"SELECT 
-                                    `idProducto`, 
-                                    `Nombre`, 
-                                    `Stock`, 
-                                    `Precio`, 
-                                    `Categoria`, 
-                                    DATE_FORMAT(`Fecha_Ingreso`, '%Y/%m/%d') AS `Fecha_Ingreso`, 
-                                    DATE_FORMAT(`Fecha_Caducidad`, '%Y/%m/%d') AS `Fecha_Caducidad`, 
-                                    `Marca` 
-                                 FROM `{tbl}`";
+`idProducto`, 
+`Nombre`, 
+`Stock`, 
+`Precio`, 
+`Categoria`, 
+DATE_FORMAT(`Fecha_Ingreso`, '%Y/%m/%d') AS `Fecha_Ingreso`, 
+DATE_FORMAT(`Fecha_Caducidad`, '%Y/%m/%d') AS `Fecha_Caducidad`, 
+`Marca` 
+FROM `{tbl}`";
             }
             else if (tbl == "tbl_citas")
             {
-                consulta = @"SELECT \r\n  idCita,\r\n  idCliente,\r\n  idBarbero,\r\n  Descripcion,\r\n  DATE_FORMAT(Fecha_Inicio, '%Y/%m/%d') AS Fecha_Inicio,\r\n  DATE_FORMAT(Fecha_Finalizacion, '%Y/%m/%d') AS Fecha_Finalizacion\r\nFROM tbl_citas ";
+                consulta = @"SELECT   
+idCita,   
+idCliente,   
+idBarbero,  
+Descripcion,  
+DATE_FORMAT(Fecha_Inicio, '%Y/%m/%d') AS Fecha_Inicio,  
+DATE_FORMAT(Fecha_Finalizacion, '%Y/%m/%d') AS Fecha_Finalizacion 
+FROM tbl_citas ";
             }
             else if (tbl == "tbl_clientes")
             {
@@ -148,7 +158,15 @@ FROM tbl_clientes";
             }
             else if (tbl == "tbl_barberos")
             {
-                consulta = "SELECT \r\n  `idBarbero`,\r\n  `Nombre_Barbero`,\r\n  `Apellido_Barbero`,\r\n  `Direccion_Barbero`,\r\n  `Telefono_Barbero`,\r\n  `DUI_Barbero`, \r\n  DATE_FORMAT(`Fecha_Inicio`, '%Y/%m/%d') AS `Fecha_Inicio`\r\nFROM \r\n  tbl_barberos ";
+                consulta = @"SELECT  
+`idBarbero`, 
+`Nombre_Barbero`,  
+`Apellido_Barbero`,  
+`Direccion_Barbero`,  
+`Telefono_Barbero`,  
+`DUI_Barbero`,   
+DATE_FORMAT(`Fecha_Inicio`, '%Y/%m/%d') AS `Fecha_Inicio` 
+FROM   tbl_barberos ";
             }
             else if (tbl == "tbl_usuarios")
             {
@@ -161,7 +179,7 @@ FROM tbl_clientes";
             }
             return consulta;
         }
-
+        // funcion para mostrar la tbl depende del nivel de usuario
         private string tblconsulta(string tbl,int tipo)
         {
 
@@ -178,6 +196,7 @@ FROM tbl_clientes";
                 return consulta;
 
         }
+        // funcion para buscar un dato en la tbl
         public string BuscarDato(string consulta)
         {
             MySqlConnection conexion = Conexcion.MyConnection();

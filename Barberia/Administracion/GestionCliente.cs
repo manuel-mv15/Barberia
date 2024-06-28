@@ -27,15 +27,15 @@ namespace Barberia
             dgvGestionarClientes.DataSource = consultas.ActualizarTabla(tbl);
 
         }
-
+        // volver al home
         private void btnHome_Click(object sender, EventArgs e) //terminado
         {
             Home AbrirHome = new Home(1);
             AbrirHome.Show();
             Hide();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e) //terminado
+        // agragar cliente a la base de datos
+        private void btnAgregar_Click(object sender, EventArgs e) //
         {
             if (validartxt(groupBox1))
             {
@@ -52,7 +52,7 @@ namespace Barberia
             }
 
         }
-
+        // boton para eliminar
         private void btnEliminar_Click(object sender, EventArgs e) // terminado
         {
 
@@ -61,8 +61,8 @@ namespace Barberia
             dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
 
         }
-
-        private void btnAceptar_Click(object sender, EventArgs e) //termindado
+        // boton para aceptar los cambios y enviarlos a la base de datos
+        private void btnAceptar_Click(object sender, EventArgs e) 
         {
             if (validartxt(groupBox1))
             {
@@ -84,7 +84,7 @@ namespace Barberia
 
             }
         }
-
+        // para ibtener la fila seleccionada y el id 
         private void dgvGestionarClientes_CellContentClick(object sender, DataGridViewCellEventArgs e) //termindado
         {
             if (dgvGestionarClientes.CurrentRow != null)
@@ -98,6 +98,7 @@ namespace Barberia
             }
         }
 
+        // obtenemos los datos de la fila seleccionada y los mostramos en los txt
         private void btnEditar_Click(object sender, EventArgs e) //termindado
         {
             txtIDCliente.Text = dgvGestionarClientes.Rows[fila].Cells[0].Value.ToString();
@@ -144,6 +145,11 @@ namespace Barberia
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GestionCliente_Load(object sender, EventArgs e)
         {
 
         }

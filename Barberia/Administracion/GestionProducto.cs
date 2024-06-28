@@ -34,7 +34,7 @@ namespace Barberia
 
         DataTable dtProducto = new DataTable();
 
-
+        // para volver al home 
         private void btnHome_Click(object sender, EventArgs e)// termindado
         {
             Home AbrirHome = new Home(1);
@@ -47,26 +47,9 @@ namespace Barberia
 
         }
 
-
-        private void btnAgregar_Click(object sender, EventArgs e)// terminado 
-        {
-            if (CamposValidacion(groupBox1))
-            {
-                consulta = $"INSERT INTO tbl_productos(Nombre, Stock, Precio, Categoria, Fecha_Ingreso, Fecha_Caducidad, Marca) VALUES ('{txtNombreProducto.Text}'," +
-                   $"'{txtStockProducto.Text}','{txtPrecioProducto.Text}','{cmbCategoriaProducto.Text}','{mtbFechaIngreso.Text}','{mtbFechaCaducidad.Text}','{txtMarca.Text}')";
-
-                consultas.Query(consulta);
-                consultas.ActualizarTabla("tbl_productos");
-                limpiar(groupBox1);
-            }
-            else
-            {
-
-            }
-
-
-        }
-
+        // boton para aceptar los cambios y mandarlos al servidor
+       
+        //validar los campos de texto
         private bool CamposValidacion(GroupBox grp)// terminado
         {
             bool validacion = true;
@@ -127,6 +110,7 @@ namespace Barberia
 
         }
 
+        //limpiar los txt 
         private void limpiar(GroupBox gb)//termindado
         {
             foreach (Control item in gb.Controls)
@@ -143,7 +127,7 @@ namespace Barberia
             mtbFechaIngreso.Text = null;
             cmbCategoriaProducto.Text = null;
         }
-
+        // mandar los datos a los txt
         private void btnEditar_Click(object sender, EventArgs e) // termindado
         {
             txtIDProducto.Text = dgvGestionProductos.Rows[fila].Cells[0].Value.ToString();
@@ -163,14 +147,14 @@ namespace Barberia
         }
 
 
-
+        // boton para eliminar
         private void btnEliminar_Click(object sender, EventArgs e)//termindado 
         {
             consulta = $"DELETE FROM `tbl_productos` WHERE idCliente = {id} ";
             consultas.Query(consulta);
             dgvGestionProductos.DataSource = consultas.ActualizarTabla("tbl_productos");
         }
-
+        // boton para agregar y mandarlos al servidor
         private void btnAgregar_Click_1(object sender, EventArgs e) //termindado
         {
             if (CamposValidacion(groupBox1))
@@ -186,6 +170,7 @@ VALUES
             {
             }
         }
+        // boton para aceptar los cambios y mandarlos al servidor
         private void btnAceptar_Click(object sender, EventArgs e) //termindado
         {
 
@@ -207,7 +192,7 @@ VALUES
 
             }
         }
-
+        // obtener el id y la fila seleccionada 
         private void dgvGestionProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)//terminado
         {
             if (dgvGestionProductos.CurrentRow != null)

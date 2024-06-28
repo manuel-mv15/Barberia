@@ -90,5 +90,10 @@ namespace Barberia
         {
             consultas.ActualizarTabla("tbl_ventas");
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

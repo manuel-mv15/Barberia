@@ -33,7 +33,7 @@ namespace Barberia
             txtTipodeUsuario.Visible = false;
 
         }
-
+        // volver al home
         private void btnHome_Click(object sender, EventArgs e)
         {
             Home AbrirHome = new Home(1);
@@ -55,7 +55,7 @@ namespace Barberia
         {
 
         }
-
+        // boton para iniciar secion
         private void btnIniciar_Click(object sender, EventArgs e)
         {
 
@@ -106,6 +106,7 @@ namespace Barberia
                 MessageBox.Show("Error " + ex);
             }
         }
+        // obtener el dato por id 
         private void ObtenerDatosPorId(int idUsuario)
         {
             DataTable dt = new DataTable();
@@ -115,7 +116,7 @@ namespace Barberia
                 
                 if (row[0]!= null && row[0].ToString() == idUsuario.ToString())
                 {
-                    // Aquí obtienes los datos de la fila
+                    // Aquí obtienes los datos de la fila y lo mandamos a los txt
                     txtIdUsuario.Text = row[0].ToString();
                     txtUsuario.Text = row[1].ToString();
                     txtClave.Text = encriptador.desEncriptar(row[2].ToString());
@@ -128,11 +129,13 @@ namespace Barberia
             MessageBox.Show($"No se encontró ninguna fila con el ID Usuario: {idUsuario}");
         }
 
+        // boton para editar el usuario y la clave
         private void btnEditar_Click(object sender, EventArgs e)
         {
             consulta = $"UPDATE `tbl_usuarios` SET `Usuario`='{txtUsuario.Text}',`Clave`='{encriptador.Encriptar(txtClave.Text)}' WHERE = {id}";
             limpiar(groupBox1);
         }
+        // boton para limpiar los txt
         private void limpiar(GroupBox gb)//termindado
         {
             foreach (Control item in gb.Controls)

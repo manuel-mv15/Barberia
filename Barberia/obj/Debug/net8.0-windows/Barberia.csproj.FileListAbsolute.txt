@@ -113,3 +113,4 @@ C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\obj\Debug
 C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\obj\Debug\net8.0-windows\Barberia.csproj.ResolveComReference.cache
 C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\bin\Debug\net8.0-windows\itextsharp.dll
+C:\Users\Carlo\source\repos\Programacion 2\computo 3\Barberia\Barberia\obj\Debug\net8.0-windows\Barberia.Administracion.CrearUsuario.resources

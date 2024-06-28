@@ -259,6 +259,7 @@
             Margin = new Padding(6);
             Name = "GestionCliente";
             Text = "GestionCliente";
+            Load += GestionCliente_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGestionarClientes).EndInit();
