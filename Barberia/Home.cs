@@ -125,5 +125,124 @@ namespace Barberia
             inicioDeSecion.Show();
             Hide();
         }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            if(rbtnExcel.Checked)
+            {
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "CSV Files|*.csv";
+                saveFileDialog.Title = "Guardar como CSV";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportDataGridViewToCSV(dgvMostrar, saveFileDialog.FileName);
+                }
+            }
+            else if(rbtnPdf.Checked)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "PDF Files|*.pdf";
+                saveFileDialog.Title = "Guardar como PDF";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportDataGridViewToPDF(dgvMostrar, saveFileDialog.FileName);
+                    MessageBox.Show("Exportación a PDF completada.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione en que lo quiere importar");
+            }
+        }
+        private void ExportDataGridViewToHTML(DataGridView dgv, string filename)
+        {
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.WriteLine("<html><head><style>table { width: 100%; border-collapse: collapse; } th, td { border: 1px solid black; padding: 8px; text-align: left; }</style></head><body>");
+                sw.WriteLine("<table>");
+
+                // Agregar los encabezados de columna
+                sw.WriteLine("<tr>");
+                foreach (DataGridViewColumn column in dgv.Columns)
+                {
+                    sw.WriteLine($"<th>{column.HeaderText}</th>");
+                }
+                sw.WriteLine("</tr>");
+
+                // Agregar las filas del DataGridView
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    sw.WriteLine("<tr>");
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        sw.WriteLine($"<td>{cell.Value?.ToString()}</td>");
+                    }
+                    sw.WriteLine("</tr>");
+                }
+
+                sw.WriteLine("</table>");
+                sw.WriteLine("</body></html>");
+            }
+        }
+        private void PrintHTMLToPDF(string htmlFilename, string pdfFilename)
+        {
+            var startInfo = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = htmlFilename,
+                Verb = "print",
+                CreateNoWindow = true,
+                WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden
+            };
+
+            using (var process = new System.Diagnostics.Process { StartInfo = startInfo })
+            {
+                process.Start();
+            }
+        }
+
+        private void ExportDataGridViewToPDF(DataGridView dgv, string pdfFilename)
+        {
+            // Generar un archivo HTML temporal
+            string tempHtmlFilename = Path.Combine(Path.GetTempPath(), "temp.html");
+            ExportDataGridViewToHTML(dgv, tempHtmlFilename);
+
+            // Imprimir el archivo HTML como PDF
+            PrintHTMLToPDF(tempHtmlFilename, pdfFilename);
+
+            // Eliminar el archivo HTML temporal
+            File.Delete(tempHtmlFilename);
+        }
+
+        private void ExportDataGridViewToCSV(DataGridView dgv, string filename)
+        {
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                // Escribir encabezados de columna
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    sw.Write(dgv.Columns[i].HeaderText);
+                    if (i < dgv.Columns.Count - 1) sw.Write(",");
+                }
+                sw.WriteLine();
+
+                // Escribir filas
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    {
+                        sw.Write(row.Cells[i].Value?.ToString());
+                        if (i < dgv.Columns.Count - 1) sw.Write(",");
+                    }
+                    sw.WriteLine();
+                }
+            }
+
+            MessageBox.Show("Exportación a CSV completada.");
+        }
+
+
     }
 }
