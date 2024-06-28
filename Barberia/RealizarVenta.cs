@@ -17,10 +17,20 @@ namespace Barberia
         {
             InitializeComponent();
             dataGridView1.DataSource = consultas.ActualizarTabla("tbl_productos");
-            dataGridView2.DataSource = consultas.ActualizarTabla("tbl_clientes");
+            //dataGridView2.DataSource = consultas.ActualizarTabla("tbl_clientes");
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }

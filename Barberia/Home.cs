@@ -12,7 +12,7 @@ namespace Barberia
 {
     public partial class Home : Form
     {
-       public int IDUSUARIO { get; set; }
+        public int IDUSUARIO { get; set; }
         public Home(int id)
         {
             InitializeComponent();
@@ -107,16 +107,23 @@ namespace Barberia
         private void txtFiltrarNombre_TextChanged(object sender, EventArgs e)
         {
             string filtroNombre = txtFiltrarNombre.Text;
-            
+
             if (!string.IsNullOrEmpty(filtroNombre))
             {
-                
+
                 dgvMostrar.DataSource = consultas.Buscardato(tbl, filtroNombre);
             }
             else
             {
                 dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            InicioDeSecion inicioDeSecion = new InicioDeSecion();
+            inicioDeSecion.Show();
+            Hide();
         }
     }
 }
