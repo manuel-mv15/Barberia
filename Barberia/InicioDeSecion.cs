@@ -107,9 +107,12 @@ namespace Barberia
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            CrearUsuario crearUsuario = new CrearUsuario();
-            crearUsuario.Show();
-            Hide();
+            //CrearUsuario crearUsuario = new CrearUsuario();
+            //crearUsuario.Show();
+            //Hide();
+
+            
+            //Encriptador encriptador = new Encriptador();
         }
     }
 }
