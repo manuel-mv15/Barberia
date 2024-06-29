@@ -11,6 +11,7 @@ using Microsoft.Office.Interop.Excel;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
+using Barberia.Administracion;
 
 namespace Barberia
 {
@@ -234,7 +235,9 @@ namespace Barberia
         // btn para abrir formn
         private void btnAgendarCita_Click(object sender, EventArgs e)
         {
-
+            GenerarCita generarCita = new GenerarCita();
+            generarCita.Show();
+            Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)

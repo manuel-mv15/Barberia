@@ -18,6 +18,7 @@ namespace Barberia
             miconcexcion.Open();
             try
             {
+                MessageBox.Show(tblconsulta(tbl));
                 MySqlCommand cmd = new MySqlCommand(tblconsulta(tbl), miconcexcion);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -134,14 +135,19 @@ FROM `{tbl}`";
             }
             else if (tbl == "tbl_citas")
             {
-                consulta = @"SELECT   
-idCita,   
-idCliente,   
-idBarbero,  
-Descripcion,  
-DATE_FORMAT(Fecha_Inicio, '%Y/%m/%d') AS Fecha_Inicio,  
-DATE_FORMAT(Fecha_Finalizacion, '%Y/%m/%d') AS Fecha_Finalizacion 
-FROM tbl_citas ";
+                consulta = @"SELECT 
+   idCita,
+   Descripcion,
+   idBarbero,
+   Nombre_Barbero,
+   Apellido_Barbero,
+   DUI_Barbero,
+   idCliente,
+   Nombre_Cliente,
+   Apellido_Cliente,
+   DUI_Cliente,
+   DATE_FORMAT(Fecha, '%Y/%m/%d') AS Fecha 
+FROM tbl_citas;";
             }
             else if (tbl == "tbl_clientes")
             {
@@ -176,6 +182,10 @@ FROM   tbl_barberos ";
             else if (tbl == "tbl_ventas")
             {
                 consulta = "SELECT * FROM `tbl_ventas`";
+            }
+            else if (tbl == "tbl_citas")
+            {
+                consulta = "SELECT * FROM `tbl_citas` ";
             }
             return consulta;
         }

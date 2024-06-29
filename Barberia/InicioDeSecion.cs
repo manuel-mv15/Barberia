@@ -28,7 +28,6 @@ namespace Barberia
             string Clave = txt_Clave.Text;
             string claveEncriptada = encriptador.Encriptar(Clave);
             string consultaPrimaria = $"SELECT * FROM tbl_usuarios WHERE Usuario = '{Usuario}' AND Clave = '{claveEncriptada}';";
-            string consultaSecundaria = $"SELECT * FROM `tbl_clientes` WHERE `Usuario` ={Usuario} and  `Contraseña` ={claveEncriptada}";
 
             MySqlConnection conexion = Conexcion.MyConnection();
             conexion.Open();
@@ -63,22 +62,6 @@ namespace Barberia
                     Home abrirHome = new Home(IDUSUARIO); // abrimos el home y mandamos el id
                     abrirHome.Show();
                     this.Hide();
-                }
-                else
-                {
-                    // Usuario no encontrado en la primera tabla, realizar la segunda consulta de clientes
-                    MySqlCommand cmdSecundaria = new MySqlCommand(consultaSecundaria, conexion);
-                    int datoSecundario = Convert.ToInt32(cmdSecundaria.ExecuteScalar());
-
-                    if (datoSecundario > 0)
-                    {
-
-                    }
-                    else
-                    {
-                        // Usuario no encontrado en ninguna tabla
-                        MessageBox.Show("Usuario o clave incorrectos.");
-                    }
                 }
             }
             catch (Exception ex)

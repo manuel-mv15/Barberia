@@ -35,7 +35,6 @@
             btn_Ingresar = new Button();
             label3 = new Label();
             label4 = new Label();
-            btnRegistrarse = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -51,7 +50,6 @@
             txt_Usuario.Name = "txt_Usuario";
             txt_Usuario.Size = new Size(382, 47);
             txt_Usuario.TabIndex = 0;
-            txt_Usuario.Text = "Admin";
             // 
             // txt_Clave
             // 
@@ -61,7 +59,6 @@
             txt_Clave.PasswordChar = '*';
             txt_Clave.Size = new Size(382, 47);
             txt_Clave.TabIndex = 1;
-            txt_Clave.Text = "1234";
             // 
             // label1
             // 
@@ -124,22 +121,6 @@
             label4.TabIndex = 7;
             label4.Text = "USER LOGIN";
             // 
-            // btnRegistrarse
-            // 
-            btnRegistrarse.BackColor = Color.FromArgb(14, 93, 136);
-            btnRegistrarse.FlatAppearance.BorderColor = SystemColors.ActiveCaptionText;
-            btnRegistrarse.FlatStyle = FlatStyle.Flat;
-            btnRegistrarse.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnRegistrarse.ForeColor = SystemColors.ControlLight;
-            btnRegistrarse.Location = new Point(421, 916);
-            btnRegistrarse.Margin = new Padding(2);
-            btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(614, 90);
-            btnRegistrarse.TabIndex = 10;
-            btnRegistrarse.Text = "Registrarse";
-            btnRegistrarse.UseVisualStyleBackColor = false;
-            btnRegistrarse.Click += btnRegistrarse_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.barbero;
@@ -179,7 +160,6 @@
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(btnRegistrarse);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(btn_Ingresar);
@@ -209,7 +189,6 @@
         private Button btn_Ingresar;
         private Label label3;
         private Label label4;
-        private Button btnRegistrarse;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
