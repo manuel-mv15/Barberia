@@ -45,6 +45,7 @@
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // btnSemanales
             // 
@@ -81,16 +82,17 @@
             dgvVentas.AllowUserToAddRows = false;
             dgvVentas.AllowUserToDeleteRows = false;
             dgvVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVentas.Location = new Point(1328, 506);
+            dgvVentas.Location = new Point(50, 448);
             dgvVentas.Name = "dgvVentas";
             dgvVentas.ReadOnly = true;
             dgvVentas.RowHeadersWidth = 102;
             dgvVentas.Size = new Size(1998, 504);
             dgvVentas.TabIndex = 4;
+            dgvVentas.CellContentClick += dgvVentas_CellContentClick;
             // 
             // mtxtFecha
             // 
-            mtxtFecha.Location = new Point(254, 404);
+            mtxtFecha.Location = new Point(657, 165);
             mtxtFecha.Mask = "0000-00-00";
             mtxtFecha.Name = "mtxtFecha";
             mtxtFecha.Size = new Size(250, 47);

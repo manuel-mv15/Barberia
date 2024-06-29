@@ -18,6 +18,7 @@ namespace Barberia
         int fila = 0;
         string tbl = "tbl_clientes";
 
+        Encriptador encriptar = new Encriptador();
         public GestionCliente() //termindado
         {
             InitializeComponent();
@@ -40,8 +41,7 @@ namespace Barberia
             if (validartxt(groupBox1))
             {
 
-                consulta = $"INSERT INTO `tbl_clientes`(`Nombre_Cliente`, `Apellido_Cliente`, `Direccion_Cliente`, `Telefono_Cliente`, `DUI_Cliente`, `Correo_Electronico`, `Fecha_Registro`) VALUES ({txtNombre_Cliente.Text}','{txtApellido_Cliente.Text}','{txtDireccion_Cliente}','{mtxtTelefono_Cliente.Text}','{txtDUI_Cliente.Text}','{txtCorreo_Electronico.Text}',CURDATE())";
-                MessageBox.Show(consulta);
+                consulta = $"INSERT INTO `tbl_clientes`(`Nombre_Cliente`, `Apellido_Cliente`, `Direccion_Cliente`, `Telefono_Cliente`, `DUI_Cliente`, `Correo_Electronico`, `Fecha_Registro`,, `Usuario`, `Contraseña`) VALUES ({txtNombre_Cliente.Text}','{txtApellido_Cliente.Text}','{txtDireccion_Cliente}','{mtxtTelefono_Cliente.Text}','{txtDUI_Cliente.Text}','{txtCorreo_Electronico.Text}',CURDATE()),{txtUsuario.Text},{encriptar.Encriptar(txtContraseña.Text)}";
                 consultas.Query(consulta);
                 dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
                 limpiar(groupBox1);
@@ -62,12 +62,12 @@ namespace Barberia
 
         }
         // boton para aceptar los cambios y enviarlos a la base de datos
-        private void btnAceptar_Click(object sender, EventArgs e) 
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (validartxt(groupBox1))
             {
 
-                consulta = $"UPDATE `tbl_clientes` SET `Nombre_Cliente`='{txtNombre_Cliente.Text}',`Apellido_Cliente`='{txtApellido_Cliente.Text}',`Direccion_Cliente`='{txtDireccion_Cliente}',`Telefono_Cliente`='{mtxtTelefono_Cliente.Text}',`DUI_Cliente`='{txtDUI_Cliente.Text}',`Correo_Electronico`='{txtCorreo_Electronico.Text}',`Fecha_Registro`=CURDATE()  WHERE idCliente = {id} ";
+                consulta = $"UPDATE `tbl_clientes` SET `Nombre_Cliente`='{txtNombre_Cliente.Text}',`Apellido_Cliente`='{txtApellido_Cliente.Text}',`Direccion_Cliente`='{txtDireccion_Cliente}',`Telefono_Cliente`='{mtxtTelefono_Cliente.Text}',`DUI_Cliente`='{txtDUI_Cliente.Text}',`Correo_Electronico`='{txtCorreo_Electronico.Text}',`Fecha_Registro`=CURDATE(), `Usuario` = '{txtUsuario.Text}', `Contraseña` =  '{encriptar.Encriptar(txtContraseña.Text)}' WHERE idCliente = {id} ";
                 consultas.Query(consulta);
                 dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
 
@@ -108,6 +108,8 @@ namespace Barberia
             mtxtTelefono_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[4].Value.ToString();
             txtDUI_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[5].Value.ToString();
             txtCorreo_Electronico.Text = dgvGestionarClientes.Rows[fila].Cells[6].Value.ToString();
+            txtUsuario.Text = dgvGestionarClientes.Rows[fila].Cells[8].Value.ToString();
+            txtContraseña.Text = encriptar.desEncriptar(dgvGestionarClientes.Rows[fila].Cells[9].Value.ToString());
             btnAceptar.Visible = true;
             btnEliminar.Enabled = false;
             btnHome.Enabled = false;
@@ -150,6 +152,16 @@ namespace Barberia
         }
 
         private void GestionCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

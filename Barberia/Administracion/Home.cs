@@ -17,6 +17,11 @@ namespace Barberia
     public partial class Home : Form
     {
         public int IDUSUARIO { get; set; }
+        public Home()
+        {
+            InitializeComponent();
+           
+        }
         public Home(int id)
         {
             InitializeComponent();

@@ -13,15 +13,15 @@ namespace Barberia.Administracion
     public partial class GestiondeVentas : Form
     {
         Consultas consultas = new Consultas();
-        DateTime fecha ;
+        DateTime fecha;
         public GestiondeVentas()
         {
             InitializeComponent();
         }
         public bool EsFechaValida()
         {
-           string _fecha = mtxtFecha.Text;
-             fecha = DateTime.Parse(_fecha);
+            string _fecha = mtxtFecha.Text;
+            fecha = DateTime.Parse(_fecha);
             DateTime fechaResultado;
             return DateTime.TryParse(_fecha, out fechaResultado);
         }
@@ -84,8 +84,21 @@ namespace Barberia.Administracion
                 GROUP BY 
                     YEAR(fecha), MONTH(fecha);";
 
-                dgvVentas.DataSource = consultas.ActualizarTabla(ventasMensualesQuery); 
+                dgvVentas.DataSource = consultas.ActualizarTabla(ventasMensualesQuery);
             }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            Hide();
+
+        }
+
+        private void dgvVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
