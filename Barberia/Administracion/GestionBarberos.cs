@@ -12,9 +12,15 @@ namespace Barberia.Administracion
 {
     public partial class GestionBarberos : Form
     {
+        Consultas consultas = new Consultas();
+        string consulta = "";
+        int id = 0;
+        int fila = 0;
+        string tbl = "tbl_barberos";
         public GestionBarberos()
         {
             InitializeComponent();
+            dgvBarberos.DataSource = consultas.ActualizarTabla(tbl);
         }
 
         private void GestionBarberos_Load(object sender, EventArgs e)
@@ -104,6 +110,39 @@ namespace Barberia.Administracion
                 e.Handled = true;
             }
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvBarberos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvBarberos.CurrentRow != null)
+            {
+                fila = dgvBarberos.CurrentRow.Index;
+                var cellValue = dgvBarberos.Rows[fila].Cells[0].Value;
+                if (cellValue != null)
+                {
+                    id = int.Parse(cellValue.ToString());
+                }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            txtIDBarbero.Text = dgvBarberos.Rows[fila].Cells[0].Value.ToString();
+            txtNombre_Barbero.Text = dgvBarberos.Rows[fila].Cells[1].Value.ToString();
+            txtApellido_Barbero.Text = dgvBarberos.Rows[fila].Cells[2].Value.ToString();
+            txtDireccion_Barbero.Text = dgvBarberos.Rows[fila].Cells[3].Value.ToString();
+            mtxtTelefono_Barbero.Text = dgvBarberos.Rows[fila].Cells[4].Value.ToString();
+            mtxtDUI_Barbero.Text = dgvBarberos.Rows[fila].Cells[5].Value.ToString();
+            mtxtFechaInicio_Barbero.Text = dgvBarberos.Rows[fila].Cells[6].Value.ToString();
+            btnAceptar.Visible = true;
+            btnEliminar.Enabled = false;
+            btnHome.Enabled = false;
+            btnAgregar.Enabled = false;
         }
     }
 }

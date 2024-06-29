@@ -164,3 +164,4 @@ C:\Users\Carlo\source\repos\Programacion 2\barberia\Barberia\obj\Debug\net8.0-wi
 C:\Users\Carlo\source\repos\Programacion 2\barberia\Barberia\obj\Debug\net8.0-windows\Barberia.genruntimeconfig.cache
 C:\Users\Carlo\source\repos\Programacion 2\barberia\Barberia\obj\Debug\net8.0-windows\ref\Barberia.dll
 C:\Users\Carlo\source\repos\Programacion 2\barberia\Barberia\obj\Debug\net8.0-windows\Barberia.Administracion.GenerarCita.resources
+C:\Users\Carlo\source\repos\Programacion 2\barberia\Barberia\obj\Debug\net8.0-windows\Barberia.Administracion.GestionBarberos.resources

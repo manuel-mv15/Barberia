@@ -108,8 +108,6 @@ namespace Barberia
             mtxtTelefono_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[4].Value.ToString();
             mtxtDUI_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[5].Value.ToString();
             txtCorreo_Electronico.Text = dgvGestionarClientes.Rows[fila].Cells[6].Value.ToString();
-            txtUsuario.Text = dgvGestionarClientes.Rows[fila].Cells[8].Value.ToString();
-            txtContraseña.Text = encriptar.desEncriptar(dgvGestionarClientes.Rows[fila].Cells[9].Value.ToString());
             btnAceptar.Visible = true;
             btnEliminar.Enabled = false;
             btnHome.Enabled = false;
