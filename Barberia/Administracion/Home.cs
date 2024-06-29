@@ -21,11 +21,12 @@ namespace Barberia
         public Home()
         {
             InitializeComponent();
-           
+
         }
         public Home(int id)
         {
             InitializeComponent();
+
             this.IDUSUARIO = id;
         }
         string tbl = "";
@@ -53,7 +54,7 @@ namespace Barberia
             Hide();
         }
         //-----------------fin de botones para abrir otros formularios
-//botones para mostrar informacion
+        //botones para mostrar informacion
 
         private void btnMostrarUsuarios_Click(object sender, EventArgs e)
         {
@@ -70,9 +71,9 @@ namespace Barberia
             lblFiltroNombre.Visible = true;
             txtFiltrarNombre.Visible = true;
             tbl = "tbl_clientes";
-            
+
             dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
-            
+
         }
 
         private void btnMostrarProductos_Click(object sender, EventArgs e)
@@ -249,7 +250,14 @@ namespace Barberia
         {
 
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            GestionBarberos gestionBarberos = new GestionBarberos();
+            gestionBarberos.Show();
+            Hide();
+        }
         // fin de botones para abrir formn
-       
+
     }
 }

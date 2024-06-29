@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btnGestionUsuarios = new Button();
             btnGestionClientes = new Button();
             btnGestionProductos = new Button();
@@ -49,6 +49,7 @@
             btnImportar = new Button();
             rbtnPdf = new RadioButton();
             rbtnExcel = new RadioButton();
+            btnGestionBarberos = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMostrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -59,7 +60,7 @@
             btnGestionUsuarios.Cursor = Cursors.Hand;
             btnGestionUsuarios.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnGestionUsuarios.ForeColor = Color.White;
-            btnGestionUsuarios.Location = new Point(51, 472);
+            btnGestionUsuarios.Location = new Point(51, 424);
             btnGestionUsuarios.Name = "btnGestionUsuarios";
             btnGestionUsuarios.Size = new Size(253, 54);
             btnGestionUsuarios.TabIndex = 0;
@@ -73,7 +74,7 @@
             btnGestionClientes.Cursor = Cursors.Hand;
             btnGestionClientes.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnGestionClientes.ForeColor = Color.White;
-            btnGestionClientes.Location = new Point(51, 552);
+            btnGestionClientes.Location = new Point(51, 544);
             btnGestionClientes.Name = "btnGestionClientes";
             btnGestionClientes.Size = new Size(253, 58);
             btnGestionClientes.TabIndex = 1;
@@ -87,7 +88,7 @@
             btnGestionProductos.Cursor = Cursors.Hand;
             btnGestionProductos.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnGestionProductos.ForeColor = Color.White;
-            btnGestionProductos.Location = new Point(51, 736);
+            btnGestionProductos.Location = new Point(51, 671);
             btnGestionProductos.Name = "btnGestionProductos";
             btnGestionProductos.Size = new Size(253, 57);
             btnGestionProductos.TabIndex = 2;
@@ -100,14 +101,14 @@
             dgvMostrar.AllowUserToAddRows = false;
             dgvMostrar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMostrar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(14, 93, 136);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvMostrar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(14, 93, 136);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvMostrar.DefaultCellStyle = dataGridViewCellStyle2;
             dgvMostrar.Location = new Point(410, 299);
             dgvMostrar.Name = "dgvMostrar";
             dgvMostrar.RowHeadersWidth = 51;
@@ -187,7 +188,7 @@
             btnRealizarVentas.FlatAppearance.BorderSize = 2;
             btnRealizarVentas.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnRealizarVentas.ForeColor = Color.White;
-            btnRealizarVentas.Location = new Point(51, 380);
+            btnRealizarVentas.Location = new Point(51, 360);
             btnRealizarVentas.Name = "btnRealizarVentas";
             btnRealizarVentas.Size = new Size(253, 58);
             btnRealizarVentas.TabIndex = 10;
@@ -214,7 +215,7 @@
             button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(51, 639);
+            button1.Location = new Point(51, 608);
             button1.Name = "button1";
             button1.Size = new Size(253, 57);
             button1.TabIndex = 12;
@@ -228,7 +229,7 @@
             button2.Cursor = Cursors.Hand;
             button2.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(51, 826);
+            button2.Location = new Point(51, 734);
             button2.Name = "button2";
             button2.Size = new Size(253, 59);
             button2.TabIndex = 13;
@@ -241,7 +242,7 @@
             btnCerrarSesion.BackColor = Color.FromArgb(14, 93, 136);
             btnCerrarSesion.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
             btnCerrarSesion.ForeColor = Color.White;
-            btnCerrarSesion.Location = new Point(51, 918);
+            btnCerrarSesion.Location = new Point(51, 799);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(253, 56);
             btnCerrarSesion.TabIndex = 15;
@@ -315,12 +316,27 @@
             rbtnExcel.Text = "Excel";
             rbtnExcel.UseVisualStyleBackColor = true;
             // 
+            // btnGestionBarberos
+            // 
+            btnGestionBarberos.BackColor = Color.FromArgb(14, 93, 136);
+            btnGestionBarberos.Cursor = Cursors.Hand;
+            btnGestionBarberos.Font = new Font("Sitka Small", 9F, FontStyle.Bold);
+            btnGestionBarberos.ForeColor = Color.White;
+            btnGestionBarberos.Location = new Point(51, 484);
+            btnGestionBarberos.Name = "btnGestionBarberos";
+            btnGestionBarberos.Size = new Size(253, 54);
+            btnGestionBarberos.TabIndex = 22;
+            btnGestionBarberos.Text = "Gestión de Barberos";
+            btnGestionBarberos.UseVisualStyleBackColor = false;
+            btnGestionBarberos.Click += button3_Click_1;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1819, 1055);
+            Controls.Add(btnGestionBarberos);
             Controls.Add(rbtnExcel);
             Controls.Add(rbtnPdf);
             Controls.Add(btnImportar);
@@ -373,5 +389,6 @@
         private Button btnImportar;
         private RadioButton rbtnPdf;
         private RadioButton rbtnExcel;
+        private Button btnGestionBarberos;
     }
 }

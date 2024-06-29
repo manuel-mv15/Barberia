@@ -4,6 +4,9 @@
     <Compile Update="Administracion\GenerarCita.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Administracion\GestionBarberos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Administracion\GestionCliente.cs">
       <SubType>Form</SubType>
     </Compile>
