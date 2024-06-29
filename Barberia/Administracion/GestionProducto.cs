@@ -186,6 +186,7 @@ VALUES
                 btnAgregar.Enabled = true;
                 btnEditar.Enabled = true;
                 limpiar(groupBox1);
+                id = 0;
             }
             else
             {

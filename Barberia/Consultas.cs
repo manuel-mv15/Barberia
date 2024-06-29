@@ -224,6 +224,7 @@ FROM   tbl_barberos ";
                 conexion.Close();
             }
         }
+        
     }
 
 }

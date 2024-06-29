@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using MySql.Data.MySqlClient;
 
 namespace Barberia
 {
@@ -63,7 +64,9 @@ namespace Barberia
             lblFiltroNombre.Visible = true;
             txtFiltrarNombre.Visible = true;
             tbl = "tbl_clientes";
+            
             dgvMostrar.DataSource = consultas.ActualizarTabla(tbl);
+            
         }
 
         private void btnMostrarProductos_Click(object sender, EventArgs e)
@@ -238,5 +241,7 @@ namespace Barberia
         {
 
         }
+        // fin de botones para abrir formn
+       
     }
 }
