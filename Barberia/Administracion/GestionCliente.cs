@@ -38,13 +38,13 @@ namespace Barberia
         // agragar cliente a la base de datos
         private void btnAgregar_Click(object sender, EventArgs e) //
         {
-            if (validartxt(groupBox1))
+            if (validartxt(grpCliente))
             {
 
-                consulta = $"INSERT INTO `tbl_clientes`(`Nombre_Cliente`, `Apellido_Cliente`, `Direccion_Cliente`, `Telefono_Cliente`, `DUI_Cliente`, `Correo_Electronico`, `Fecha_Registro`,, `Usuario`, `Contraseña`) VALUES ({txtNombre_Cliente.Text}','{txtApellido_Cliente.Text}','{txtDireccion_Cliente}','{mtxtTelefono_Cliente.Text}','{txtDUI_Cliente.Text}','{txtCorreo_Electronico.Text}',CURDATE()),{txtUsuario.Text},{encriptar.Encriptar(txtContraseña.Text)}";
+                consulta = $"INSERT INTO `tbl_clientes`(`Nombre_Cliente`, `Apellido_Cliente`, `Direccion_Cliente`, `Telefono_Cliente`, `DUI_Cliente`, `Correo_Electronico`, `Fecha_Registro`,, `Usuario`, `Contraseña`) VALUES ({txtNombre_Cliente.Text}','{txtApellido_Cliente.Text}','{txtDireccion_Cliente}','{mtxtTelefono_Cliente.Text}','{mtxtDUI_Cliente.Text}','{txtCorreo_Electronico.Text}',CURDATE()),{txtUsuario.Text},{encriptar.Encriptar(txtContraseña.Text)}";
                 consultas.Query(consulta);
                 dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
-                limpiar(groupBox1);
+                limpiar(grpCliente);
             }
             else
             {
@@ -64,10 +64,10 @@ namespace Barberia
         // boton para aceptar los cambios y enviarlos a la base de datos
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (validartxt(groupBox1))
+            if (validartxt(grpCliente))
             {
 
-                consulta = $"UPDATE `tbl_clientes` SET `Nombre_Cliente`='{txtNombre_Cliente.Text}',`Apellido_Cliente`='{txtApellido_Cliente.Text}',`Direccion_Cliente`='{txtDireccion_Cliente}',`Telefono_Cliente`='{mtxtTelefono_Cliente.Text}',`DUI_Cliente`='{txtDUI_Cliente.Text}',`Correo_Electronico`='{txtCorreo_Electronico.Text}',`Fecha_Registro`=CURDATE(), `Usuario` = '{txtUsuario.Text}', `Contraseña` =  '{encriptar.Encriptar(txtContraseña.Text)}' WHERE idCliente = {id} ";
+                consulta = $"UPDATE `tbl_clientes` SET `Nombre_Cliente`='{txtNombre_Cliente.Text}',`Apellido_Cliente`='{txtApellido_Cliente.Text}',`Direccion_Cliente`='{txtDireccion_Cliente}',`Telefono_Cliente`='{mtxtTelefono_Cliente.Text}',`DUI_Cliente`='{mtxtDUI_Cliente.Text}',`Correo_Electronico`='{txtCorreo_Electronico.Text}',`Fecha_Registro`=CURDATE(), `Usuario` = '{txtUsuario.Text}', `Contraseña` =  '{encriptar.Encriptar(txtContraseña.Text)}' WHERE idCliente = {id} ";
                 consultas.Query(consulta);
                 dgvGestionarClientes.DataSource = consultas.ActualizarTabla("tbl_clientes");
 
@@ -76,7 +76,7 @@ namespace Barberia
                 btnEliminar.Enabled = true;
                 btnHome.Enabled = true;
                 btnAgregar.Enabled = true;
-                limpiar(groupBox1);
+                limpiar(grpCliente);
             }
             else
             {
@@ -106,7 +106,7 @@ namespace Barberia
             txtApellido_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[2].Value.ToString();
             txtDireccion_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[3].Value.ToString();
             mtxtTelefono_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[4].Value.ToString();
-            txtDUI_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[5].Value.ToString();
+            mtxtDUI_Cliente.Text = dgvGestionarClientes.Rows[fila].Cells[5].Value.ToString();
             txtCorreo_Electronico.Text = dgvGestionarClientes.Rows[fila].Cells[6].Value.ToString();
             txtUsuario.Text = dgvGestionarClientes.Rows[fila].Cells[8].Value.ToString();
             txtContraseña.Text = encriptar.desEncriptar(dgvGestionarClientes.Rows[fila].Cells[9].Value.ToString());
@@ -164,6 +164,45 @@ namespace Barberia
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNombre_Cliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtApellido_Cliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido_Cliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) ||  char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 

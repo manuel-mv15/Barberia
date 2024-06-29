@@ -48,7 +48,7 @@ namespace Barberia
         }
 
         // boton para aceptar los cambios y mandarlos al servidor
-       
+
         //validar los campos de texto
         private bool CamposValidacion(GroupBox grp)// terminado
         {
@@ -60,51 +60,33 @@ namespace Barberia
                 MessageBox.Show("Ingrese el nombre del producto");
                 txtNombreProducto.Focus();
             }
-            else
-            {
-                validacion = true;
-            }
-            if (string.IsNullOrEmpty(txtStockProducto.Text))
+
+            else if (string.IsNullOrEmpty(txtStockProducto.Text))
             {
                 validacion = false;
                 MessageBox.Show("Ingrese la cantidad disponible del producto");
                 txtStockProducto.Focus();
             }
 
-            else
-            {
-                validacion = true;
-            }
-            if (string.IsNullOrEmpty(txtPrecioProducto.Text))
+            else if (string.IsNullOrEmpty(txtPrecioProducto.Text))
             {
                 validacion = false;
                 MessageBox.Show("Ingrese el precio del producto");
                 txtPrecioProducto.Focus();
             }
 
-            else
-            {
-                validacion = true;
-            }
-            if (string.IsNullOrEmpty(cmbCategoriaProducto.Text))
+            else if (string.IsNullOrEmpty(cmbCategoriaProducto.Text))
             {
                 validacion = false;
                 MessageBox.Show("Ingrese la categoria del producto");
                 cmbCategoriaProducto.Focus();
             }
-            else
-            {
-                validacion = true;
-            }
-            if (string.IsNullOrEmpty(txtMarca.Text))
+
+            else if (string.IsNullOrEmpty(txtMarca.Text))
             {
                 validacion = false;
                 MessageBox.Show("Ingrese la marca del producto");
                 txtMarca.Focus();
-            }
-            else
-            {
-                validacion = true;
             }
             return validacion;
 
@@ -157,14 +139,14 @@ namespace Barberia
         // boton para agregar y mandarlos al servidor
         private void btnAgregar_Click_1(object sender, EventArgs e) //termindado
         {
-            if (CamposValidacion(groupBox1))
+            if (CamposValidacion(grpGestionProducto))
             {
                 consulta = $@"INSERT INTO tbl_productos(Nombre, Stock, Precio, Categoria, Fecha_Ingreso, Fecha_Caducidad, Marca) 
 VALUES 
 ('{txtNombreProducto.Text}','{txtStockProducto.Text}','{txtPrecioProducto.Text}','{cmbCategoriaProducto.Text}','{mtbFechaIngreso.Text}','{mtbFechaCaducidad.Text}','{txtMarca.Text}')";
                 consultas.Query(consulta);
                 dgvGestionProductos.DataSource = consultas.ActualizarTabla(tbl);
-                limpiar(groupBox1);
+                limpiar(grpGestionProducto);
             }
             else
             {
@@ -174,7 +156,7 @@ VALUES
         private void btnAceptar_Click(object sender, EventArgs e) //termindado
         {
 
-            if (CamposValidacion(groupBox1))
+            if (CamposValidacion(grpGestionProducto))
             {
                 consulta = $"UPDATE `tbl_productos` SET `Nombre`='{txtNombreProducto.Text}',`Stock`={int.Parse(txtStockProducto.Text)},`Precio`={decimal.Parse(txtPrecioProducto.Text)},`Categoria`='{cmbCategoriaProducto.Text}',`Fecha_Ingreso`='{mtbFechaIngreso.Text}',`Fecha_Caducidad`='{mtbFechaCaducidad.Text}',`Marca`='{txtMarca.Text}' WHERE `idProducto` = {id}";
                 consultas.Query(consulta);
@@ -185,7 +167,7 @@ VALUES
                 btnHome.Enabled = true;
                 btnAgregar.Enabled = true;
                 btnEditar.Enabled = true;
-                limpiar(groupBox1);
+                limpiar(grpGestionProducto);
                 id = 0;
             }
             else
@@ -204,6 +186,39 @@ VALUES
                 {
                     id = int.Parse(cellValue.ToString());
                 }
+            }
+        }
+
+        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbCategoriaProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtStockProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsPunctuation(e.KeyChar) || char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

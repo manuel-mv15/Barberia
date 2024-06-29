@@ -36,7 +36,7 @@ namespace Barberia
 
         }
 
-         void button4_Click(object sender, EventArgs e)
+        void button4_Click(object sender, EventArgs e)
         {
             tbl = "tbl_productos";
             dgvMostrarDatos.DataSource = consultas.ActualizarTabla(tbl);
@@ -129,7 +129,7 @@ SET
     tbl_ventas.Nombre_Cliente = tbl_clientes.Nombre_Cliente,
     tbl_ventas.Apellido_Cliente = tbl_clientes.Apellido_Cliente,
     tbl_ventas.DUI = LEFT(tbl_clientes.DUI_Cliente, 10); ";
-                       consultas.Query(consulta);
+                    consultas.Query(consulta);
                     dgvVenta.DataSource = null;
                 }
             }
@@ -206,23 +206,31 @@ SET
 
         private void dgvMostrarDatos_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-           
-                if (dgvMostrarDatos.CurrentRow != null)
-                {
-                     fila = dgvMostrarDatos.CurrentRow.Index;
-                    var cellValue = dgvMostrarDatos.Rows[fila].Cells[0].Value;
+
+            if (dgvMostrarDatos.CurrentRow != null)
+            {
+                fila = dgvMostrarDatos.CurrentRow.Index;
+                var cellValue = dgvMostrarDatos.Rows[fila].Cells[0].Value;
                 if (cellValue != null)
                 {
                     id = int.Parse(cellValue.ToString());
-                 
+
                 }
                 else
                 {
                     MessageBox.Show("La celda seleccionada está vacía.");
                 }
-                }
-            
+            }
 
+
+        }
+
+        private void nupCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            {
+                   e.Handled = true;    
+            }
         }
     }
 }
